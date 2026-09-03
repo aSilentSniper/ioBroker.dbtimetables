@@ -1,5 +1,23 @@
 {
 	"dbtimetables adapter settings": "Adaptereinstellungen für dbtimetables",
-	"option1": "Option1",
-	"option2": "Option2"
+	"Zugangsdaten": "Zugangsdaten",
+	"Client-ID und API-Key erhältst du kostenlos unter developers.deutschebahn.com (Anwendung anlegen -> Timetables-API mit Free-Plan abonnieren).": "Client-ID und API-Key erhältst du kostenlos unter developers.deutschebahn.com (Anwendung anlegen -> Timetables-API mit Free-Plan abonnieren).",
+	"DB-Client-Id": "DB-Client-Id",
+	"DB-Api-Key": "DB-Api-Key",
+	"Aktualisierungsintervall (Sekunden)": "Aktualisierungsintervall (Sekunden)",
+	"Free-Plan erlaubt 60 Aufrufe/Minute. Pro Station werden ca. 2-3 Aufrufe pro Intervall verbraucht.": "Free-Plan erlaubt 60 Aufrufe/Minute. Pro Station werden ca. 2-3 Aufrufe pro Intervall verbraucht.",
+	"Verspätet markieren ab (Minuten)": "Verspätet markieren ab (Minuten)",
+	"Farbe für pünktlich (HTML)": "Farbe für pünktlich (HTML)",
+	"Farbe für Verspätung/Ausfall (HTML)": "Farbe für Verspätung/Ausfall (HTML)",
+	"JSON-Elemente speichern": "JSON-Elemente speichern",
+	"Abfahrtstafeln": "Abfahrtstafeln",
+	"Tipp: Stationsnamen in \"Suchbegriff\" eintragen, dann rechts daneben im Feld \"EVA-Nummer\" aus den Vorschlägen die passende Station auswählen. Voraussetzung: die Instanz läuft bereits mit gültigem Client-Id/Api-Key. Alternativ kann die EVA-Nummer auch direkt eingetragen werden.": "Tipp: Stationsnamen in \"Suchbegriff\" eintragen, dann rechts daneben im Feld \"EVA-Nummer\" aus den Vorschlägen die passende Station auswählen. Voraussetzung: die Instanz läuft bereits mit gültigem Client-Id/Api-Key. Alternativ kann die EVA-Nummer auch direkt eingetragen werden.",
+	"Stationen": "Stationen",
+	"Aktiv": "Aktiv",
+	"Name (frei wählbar)": "Name (frei wählbar)",
+	"Suchbegriff (Stationsname)": "Suchbegriff (Stationsname)",
+	"EVA-Nummer": "EVA-Nummer",
+	"Anzahl Abfahrten": "Anzahl Abfahrten",
+	"Zeit-Offset (Min.)": "Zeit-Offset (Min.)",
+	"Kategorie-Filter (z.B. S,RE,RB) leer = alle": "Kategorie-Filter (z.B. S,RE,RB) leer = alle"
 }

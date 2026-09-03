@@ -65,12 +65,12 @@
     },
     "dependencies": [
       {
-        "js-controller": ">=5.0.19"
+        "js-controller": ">=6.0.11"
       }
     ],
     "globalDependencies": [
       {
-        "admin": ">=6.0.0"
+        "admin": ">=7.6.20"
       }
     ]
   },
@@ -88,6 +88,7 @@
       {
         "active": true,
         "name": "Meine Haltestelle",
+        "stationQuery": "",
         "evaNo": "",
         "count": 5,
         "timeOffsetMinutes": 0,

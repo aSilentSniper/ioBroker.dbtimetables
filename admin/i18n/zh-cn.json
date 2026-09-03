@@ -1,5 +1,23 @@
 {
-	"dbtimetables adapter settings": "dbtimetables的适配器设置",
-	"option1": "选项1",
-	"option2": "选项2"
+	"dbtimetables adapter settings": "dbtimetables 适配器设置",
+	"Zugangsdaten": "凭据",
+	"Client-ID und API-Key erhältst du kostenlos unter developers.deutschebahn.com (Anwendung anlegen -> Timetables-API mit Free-Plan abonnieren).": "在 developers.deutschebahn.com 免费获取 Client-ID 和 API 密钥(创建应用程序 -> 订阅 Timetables API 的免费套餐)。",
+	"DB-Client-Id": "DB Client-Id",
+	"DB-Api-Key": "DB Api-Key",
+	"Aktualisierungsintervall (Sekunden)": "更新间隔(秒)",
+	"Free-Plan erlaubt 60 Aufrufe/Minute. Pro Station werden ca. 2-3 Aufrufe pro Intervall verbraucht.": "免费套餐允许每分钟 60 次请求。每个站点每个周期大约消耗 2-3 次请求。",
+	"Verspätet markieren ab (Minuten)": "延误标记阈值(分钟)",
+	"Farbe für pünktlich (HTML)": "准点颜色(HTML)",
+	"Farbe für Verspätung/Ausfall (HTML)": "延误/取消颜色(HTML)",
+	"JSON-Elemente speichern": "保存 JSON 元素",
+	"Abfahrtstafeln": "发车信息板",
+	"Tipp: Stationsnamen in \"Suchbegriff\" eintragen, dann rechts daneben im Feld \"EVA-Nummer\" aus den Vorschlägen die passende Station auswählen. Voraussetzung: die Instanz läuft bereits mit gültigem Client-Id/Api-Key. Alternativ kann die EVA-Nummer auch direkt eingetragen werden.": "提示:在\"搜索关键词\"中输入车站名称,然后在旁边的\"EVA 编号\"字段的建议列表中选择匹配的车站。前提条件:该实例必须已经使用有效的 Client-Id/Api-Key 运行。也可以直接手动输入 EVA 编号。",
+	"Stationen": "车站",
+	"Aktiv": "启用",
+	"Name (frei wählbar)": "名称(可自定义)",
+	"Suchbegriff (Stationsname)": "搜索关键词(车站名称)",
+	"EVA-Nummer": "EVA 编号",
+	"Anzahl Abfahrten": "发车数量",
+	"Zeit-Offset (Min.)": "时间偏移(分钟)",
+	"Kategorie-Filter (z.B. S,RE,RB) leer = alle": "类别过滤器(如 S,RE,RB),留空 = 全部"
 }

@@ -1,5 +1,23 @@
 {
-	"dbtimetables adapter settings": "Ajustes del adaptador para dbtimetables",
-	"option1": "opción1",
-	"option2": "opción2"
+	"dbtimetables adapter settings": "Ajustes del adaptador dbtimetables",
+	"Zugangsdaten": "Credenciales",
+	"Client-ID und API-Key erhältst du kostenlos unter developers.deutschebahn.com (Anwendung anlegen -> Timetables-API mit Free-Plan abonnieren).": "Obtén gratis tu Client-ID y tu API-Key en developers.deutschebahn.com (crea una aplicación -> suscríbete a la API Timetables con el plan gratuito).",
+	"DB-Client-Id": "DB Client-Id",
+	"DB-Api-Key": "DB Api-Key",
+	"Aktualisierungsintervall (Sekunden)": "Intervalo de actualización (segundos)",
+	"Free-Plan erlaubt 60 Aufrufe/Minute. Pro Station werden ca. 2-3 Aufrufe pro Intervall verbraucht.": "El plan gratuito permite 60 solicitudes/minuto. Cada estación consume aproximadamente 2-3 solicitudes por intervalo.",
+	"Verspätet markieren ab (Minuten)": "Marcar como retrasado a partir de (minutos)",
+	"Farbe für pünktlich (HTML)": "Color para puntual (HTML)",
+	"Farbe für Verspätung/Ausfall (HTML)": "Color para retraso/cancelación (HTML)",
+	"JSON-Elemente speichern": "Guardar elementos JSON",
+	"Abfahrtstafeln": "Paneles de salidas",
+	"Tipp: Stationsnamen in \"Suchbegriff\" eintragen, dann rechts daneben im Feld \"EVA-Nummer\" aus den Vorschlägen die passende Station auswählen. Voraussetzung: die Instanz läuft bereits mit gültigem Client-Id/Api-Key. Alternativ kann die EVA-Nummer auch direkt eingetragen werden.": "Consejo: introduce el nombre de la estación en \"Término de búsqueda\" y luego elige la estación correspondiente entre las sugerencias del campo \"Número EVA\" contiguo. Requisito: la instancia ya debe estar en ejecución con un Client-Id/Api-Key válidos. También se puede introducir el número EVA directamente.",
+	"Stationen": "Estaciones",
+	"Aktiv": "Activo",
+	"Name (frei wählbar)": "Nombre (libre)",
+	"Suchbegriff (Stationsname)": "Término de búsqueda (nombre de la estación)",
+	"EVA-Nummer": "Número EVA",
+	"Anzahl Abfahrten": "Número de salidas",
+	"Zeit-Offset (Min.)": "Desfase horario (min.)",
+	"Kategorie-Filter (z.B. S,RE,RB) leer = alle": "Filtro de categorías (p.ej. S,RE,RB), vacío = todas"
 }

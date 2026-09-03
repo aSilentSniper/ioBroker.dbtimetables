@@ -1,5 +1,23 @@
 {
-	"dbtimetables adapter settings": "Impostazioni dell'adattatore per dbtimetables",
-	"option1": "opzione1",
-	"option2": "opzione2"
+	"dbtimetables adapter settings": "Impostazioni dell'adattatore dbtimetables",
+	"Zugangsdaten": "Credenziali",
+	"Client-ID und API-Key erhältst du kostenlos unter developers.deutschebahn.com (Anwendung anlegen -> Timetables-API mit Free-Plan abonnieren).": "Ottieni gratuitamente il tuo Client-ID e la API-Key su developers.deutschebahn.com (crea un'applicazione -> abbonati all'API Timetables con il piano gratuito).",
+	"DB-Client-Id": "DB Client-Id",
+	"DB-Api-Key": "DB Api-Key",
+	"Aktualisierungsintervall (Sekunden)": "Intervallo di aggiornamento (secondi)",
+	"Free-Plan erlaubt 60 Aufrufe/Minute. Pro Station werden ca. 2-3 Aufrufe pro Intervall verbraucht.": "Il piano gratuito consente 60 richieste al minuto. Ogni stazione consuma circa 2-3 richieste per intervallo.",
+	"Verspätet markieren ab (Minuten)": "Contrassegna come in ritardo da (minuti)",
+	"Farbe für pünktlich (HTML)": "Colore per puntuale (HTML)",
+	"Farbe für Verspätung/Ausfall (HTML)": "Colore per ritardo/soppressione (HTML)",
+	"JSON-Elemente speichern": "Salva elementi JSON",
+	"Abfahrtstafeln": "Tabelloni delle partenze",
+	"Tipp: Stationsnamen in \"Suchbegriff\" eintragen, dann rechts daneben im Feld \"EVA-Nummer\" aus den Vorschlägen die passende Station auswählen. Voraussetzung: die Instanz läuft bereits mit gültigem Client-Id/Api-Key. Alternativ kann die EVA-Nummer auch direkt eingetragen werden.": "Suggerimento: inserisci il nome della stazione in \"Termine di ricerca\", quindi scegli la stazione corrispondente tra i suggerimenti nel campo \"Numero EVA\" accanto. Requisito: l'istanza deve già essere in esecuzione con un Client-Id/Api-Key validi. In alternativa, il numero EVA può anche essere inserito direttamente.",
+	"Stationen": "Stazioni",
+	"Aktiv": "Attivo",
+	"Name (frei wählbar)": "Nome (a scelta libera)",
+	"Suchbegriff (Stationsname)": "Termine di ricerca (nome stazione)",
+	"EVA-Nummer": "Numero EVA",
+	"Anzahl Abfahrten": "Numero di partenze",
+	"Zeit-Offset (Min.)": "Scostamento orario (min.)",
+	"Kategorie-Filter (z.B. S,RE,RB) leer = alle": "Filtro categorie (es. S,RE,RB), vuoto = tutte"
 }

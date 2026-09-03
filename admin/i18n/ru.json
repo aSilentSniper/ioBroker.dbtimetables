@@ -1,5 +1,23 @@
 {
-	"dbtimetables adapter settings": "Настройки адаптера для dbtimetables",
-	"option1": "вариант 1",
-	"option2": "вариант 2"
+	"dbtimetables adapter settings": "Настройки адаптера dbtimetables",
+	"Zugangsdaten": "Учётные данные",
+	"Client-ID und API-Key erhältst du kostenlos unter developers.deutschebahn.com (Anwendung anlegen -> Timetables-API mit Free-Plan abonnieren).": "Получите бесплатно Client-ID и API-ключ на developers.deutschebahn.com (создайте приложение -> подпишитесь на Timetables API с тарифом Free).",
+	"DB-Client-Id": "DB Client-Id",
+	"DB-Api-Key": "DB Api-Key",
+	"Aktualisierungsintervall (Sekunden)": "Интервал обновления (секунды)",
+	"Free-Plan erlaubt 60 Aufrufe/Minute. Pro Station werden ca. 2-3 Aufrufe pro Intervall verbraucht.": "Бесплатный тариф допускает 60 запросов в минуту. На каждую станцию расходуется примерно 2-3 запроса за интервал.",
+	"Verspätet markieren ab (Minuten)": "Отмечать как задержку от (минут)",
+	"Farbe für pünktlich (HTML)": "Цвет для «вовремя» (HTML)",
+	"Farbe für Verspätung/Ausfall (HTML)": "Цвет для задержки/отмены (HTML)",
+	"JSON-Elemente speichern": "Сохранять JSON-элементы",
+	"Abfahrtstafeln": "Табло отправления",
+	"Tipp: Stationsnamen in \"Suchbegriff\" eintragen, dann rechts daneben im Feld \"EVA-Nummer\" aus den Vorschlägen die passende Station auswählen. Voraussetzung: die Instanz läuft bereits mit gültigem Client-Id/Api-Key. Alternativ kann die EVA-Nummer auch direkt eingetragen werden.": "Совет: введите название станции в поле «Поисковый запрос», затем выберите нужную станцию из предложенных вариантов в соседнем поле «Номер EVA». Требование: экземпляр адаптера уже должен работать с действительными Client-Id/Api-Key. При желании номер EVA можно ввести и вручную.",
+	"Stationen": "Станции",
+	"Aktiv": "Активна",
+	"Name (frei wählbar)": "Название (произвольное)",
+	"Suchbegriff (Stationsname)": "Поисковый запрос (название станции)",
+	"EVA-Nummer": "Номер EVA",
+	"Anzahl Abfahrten": "Количество отправлений",
+	"Zeit-Offset (Min.)": "Смещение времени (мин.)",
+	"Kategorie-Filter (z.B. S,RE,RB) leer = alle": "Фильтр категорий (напр. S,RE,RB), пусто = все"
 }

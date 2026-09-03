@@ -1,5 +1,23 @@
 {
-	"dbtimetables adapter settings": "Ustawienia adaptera dla dbtimetables",
-	"option1": "opcja 1",
-	"option2": "opcja 2"
+	"dbtimetables adapter settings": "Ustawienia adaptera dbtimetables",
+	"Zugangsdaten": "Dane dostępowe",
+	"Client-ID und API-Key erhältst du kostenlos unter developers.deutschebahn.com (Anwendung anlegen -> Timetables-API mit Free-Plan abonnieren).": "Uzyskaj bezpłatnie Client-ID i klucz API na developers.deutschebahn.com (utwórz aplikację -> zasubskrybuj API Timetables w planie darmowym).",
+	"DB-Client-Id": "DB Client-Id",
+	"DB-Api-Key": "DB Api-Key",
+	"Aktualisierungsintervall (Sekunden)": "Interwał aktualizacji (sekundy)",
+	"Free-Plan erlaubt 60 Aufrufe/Minute. Pro Station werden ca. 2-3 Aufrufe pro Intervall verbraucht.": "Plan darmowy pozwala na 60 zapytań/minutę. Na każdą stację przypadają ok. 2-3 zapytania na interwał.",
+	"Verspätet markieren ab (Minuten)": "Oznacz jako opóźnione od (minuty)",
+	"Farbe für pünktlich (HTML)": "Kolor dla planowego czasu (HTML)",
+	"Farbe für Verspätung/Ausfall (HTML)": "Kolor dla opóźnienia/odwołania (HTML)",
+	"JSON-Elemente speichern": "Zapisuj elementy JSON",
+	"Abfahrtstafeln": "Tablice odjazdów",
+	"Tipp: Stationsnamen in \"Suchbegriff\" eintragen, dann rechts daneben im Feld \"EVA-Nummer\" aus den Vorschlägen die passende Station auswählen. Voraussetzung: die Instanz läuft bereits mit gültigem Client-Id/Api-Key. Alternativ kann die EVA-Nummer auch direkt eingetragen werden.": "Wskazówka: wpisz nazwę stacji w polu \"Fraza wyszukiwania\", a następnie wybierz pasującą stację z podpowiedzi w sąsiednim polu \"Numer EVA\". Wymaganie: instancja musi już działać z prawidłowym Client-Id/Api-Key. Numer EVA można też wpisać bezpośrednio.",
+	"Stationen": "Stacje",
+	"Aktiv": "Aktywna",
+	"Name (frei wählbar)": "Nazwa (dowolna)",
+	"Suchbegriff (Stationsname)": "Fraza wyszukiwania (nazwa stacji)",
+	"EVA-Nummer": "Numer EVA",
+	"Anzahl Abfahrten": "Liczba odjazdów",
+	"Zeit-Offset (Min.)": "Przesunięcie czasu (min.)",
+	"Kategorie-Filter (z.B. S,RE,RB) leer = alle": "Filtr kategorii (np. S,RE,RB), puste = wszystkie"
 }

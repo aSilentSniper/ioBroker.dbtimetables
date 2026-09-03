@@ -10,20 +10,30 @@
           "type": "staticText",
           "text": "Client-ID und API-Key erhältst du kostenlos unter developers.deutschebahn.com (Anwendung anlegen -> Timetables-API mit Free-Plan abonnieren).",
           "newLine": true,
-          "sm": 12
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12
         },
         "clientId": {
           "type": "text",
           "label": "DB-Client-Id",
+          "xs": 12,
           "sm": 12,
           "md": 6,
+          "lg": 6,
+          "xl": 6,
           "newLine": true
         },
         "apiKey": {
           "type": "password",
           "label": "DB-Api-Key",
+          "xs": 12,
           "sm": 12,
           "md": 6,
+          "lg": 6,
+          "xl": 6,
           "visible": true
         },
         "pollInterval": {
@@ -32,8 +42,11 @@
           "min": 20,
           "max": 3600,
           "default": 60,
+          "xs": 12,
           "sm": 12,
           "md": 6,
+          "lg": 6,
+          "xl": 6,
           "newLine": true,
           "help": "Free-Plan erlaubt 60 Aufrufe/Minute. Pro Station werden ca. 2-3 Aufrufe pro Intervall verbraucht."
         },
@@ -43,30 +56,42 @@
           "min": 0,
           "max": 60,
           "default": 2,
+          "xs": 12,
           "sm": 12,
-          "md": 6
+          "md": 6,
+          "lg": 6,
+          "xl": 6
         },
         "colorOnTime": {
           "type": "text",
           "label": "Farbe für pünktlich (HTML)",
           "default": "#008000",
+          "xs": 12,
           "sm": 12,
           "md": 3,
+          "lg": 3,
+          "xl": 3,
           "newLine": true
         },
         "colorDelay": {
           "type": "text",
           "label": "Farbe für Verspätung/Ausfall (HTML)",
           "default": "#ff0000",
+          "xs": 12,
           "sm": 12,
-          "md": 3
+          "md": 3,
+          "lg": 3,
+          "xl": 3
         },
         "saveJson": {
           "type": "checkbox",
           "label": "JSON-Elemente speichern",
           "default": true,
+          "xs": 12,
           "sm": 12,
-          "md": 6
+          "md": 6,
+          "lg": 6,
+          "xl": 6
         }
       }
     },
@@ -76,14 +101,22 @@
       "items": {
         "_hint2": {
           "type": "staticText",
-          "text": "Die EVA-Nummer der Station ermittelst du wie in der README beschrieben (z.B. per curl-Aufruf gegen /station/{name}).",
-          "sm": 12
+          "text": "Tipp: Stationsnamen in \"Suchbegriff\" eintragen, dann rechts daneben im Feld \"EVA-Nummer\" aus den Vorschlägen die passende Station auswählen. Voraussetzung: die Instanz läuft bereits mit gültigem Client-Id/Api-Key. Alternativ kann die EVA-Nummer auch direkt eingetragen werden.",
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12
         },
         "stations": {
           "type": "table",
           "label": "Stationen",
           "newLine": true,
+          "xs": 12,
           "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12,
           "items": [
             {
               "type": "checkbox",
@@ -96,12 +129,23 @@
               "type": "text",
               "attr": "name",
               "title": "Name (frei wählbar)",
-              "width": "24%"
+              "width": "18%"
             },
             {
               "type": "text",
+              "attr": "stationQuery",
+              "title": "Suchbegriff (Stationsname)",
+              "default": "",
+              "width": "18%"
+            },
+            {
+              "type": "autocompleteSendTo",
               "attr": "evaNo",
               "title": "EVA-Nummer",
+              "command": "searchStation",
+              "jsonData": "{\"pattern\": \"${data.stationQuery}\"}",
+              "alsoDependsOn": ["stationQuery"],
+              "freeSolo": true,
               "width": "16%"
             },
             {
@@ -111,7 +155,7 @@
               "default": 5,
               "min": 1,
               "max": 20,
-              "width": "12%"
+              "width": "10%"
             },
             {
               "type": "number",
@@ -120,13 +164,13 @@
               "default": 0,
               "min": 0,
               "max": 1440,
-              "width": "12%"
+              "width": "10%"
             },
             {
               "type": "text",
               "attr": "categories",
               "title": "Kategorie-Filter (z.B. S,RE,RB) leer = alle",
-              "width": "28%"
+              "width": "20%"
             }
           ]
         }

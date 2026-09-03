@@ -21,6 +21,11 @@ class Dbtimetables extends utils.Adapter {
 	}
 
 	async onReady() {
+		this.log.info(
+			`Start: clientId ${this.config.clientId ? `gesetzt (${this.config.clientId.length} Zeichen)` : 'FEHLT'}, ` +
+				`apiKey ${this.config.apiKey ? `gesetzt (${this.config.apiKey.length} Zeichen)` : 'FEHLT'}`,
+		);
+
 		if (!this.config.clientId || !this.config.apiKey) {
 			this.log.error(
 				'DB-Client-Id und/oder DB-Api-Key fehlen in der Adapterkonfiguration. Bitte in den Instanzeinstellungen eintragen.',
@@ -35,6 +40,9 @@ class Dbtimetables extends utils.Adapter {
 
 		// komplette, konfigurierte Liste (auch deaktivierte Zeilen), Reihenfolge = Index = "Nr" wie im alten Adapter
 		this.entries = this.config.stations || [];
+		this.log.info(
+			`${this.entries.length} Station(en) konfiguriert: ${this.entries.map((e) => `${e.name || '?'} (evaNo=${e.evaNo || '-'}, aktiv=${!!e.active})`).join(', ') || '-'}`,
+		);
 		if (!this.entries.length) {
 			this.log.warn('Keine Station konfiguriert - Adapter tut nichts.');
 		}
@@ -58,8 +66,11 @@ class Dbtimetables extends utils.Adapter {
 	/**
 	 * Erlaubt eine Stationssuche per sendTo, z.B. aus einem Skript:
 	 * sendTo('dbtimetables.0', 'searchStation', { pattern: 'Karlsruhe' }, result => console.log(result));
+	 * Wird außerdem von der jsonConfig-Admin-UI genutzt (Feld "evaNo", Typ "autocompleteSendTo"),
+	 * die als Antwort ein flaches Array von {value, label} erwartet statt eines gewrappten Objekts.
 	 */
 	onMessage(obj) {
+		this.log.info(`onMessage: command=${obj && obj.command} from=${obj && obj.from} message=${JSON.stringify(obj && obj.message)}`);
 		if (!obj || !obj.command) return;
 		if (obj.command === 'searchStation') {
 			(async () => {
@@ -69,12 +80,19 @@ class Dbtimetables extends utils.Adapter {
 							debug: (msg) => this.log.debug(msg),
 						});
 					}
-					if (!this.client) throw new Error('Client-Id/API-Key nicht konfiguriert');
+					if (!this.client) throw new Error('Client-Id/API-Key nicht konfiguriert (Instanz einmal mit gespeicherten Zugangsdaten neu starten)');
 					const pattern = (obj.message && obj.message.pattern) || '';
-					const result = await this.client.searchStations(pattern);
-					if (obj.callback) this.sendTo(obj.from, obj.command, { result }, obj.callback);
+					this.log.info(`Stationssuche: pattern="${pattern}"`);
+					const stations = pattern.trim() ? await this.client.searchStations(pattern.trim()) : [];
+					this.log.info(`Stationssuche: ${stations.length} Treffer für "${pattern}"`);
+					const options = stations.map((s) => ({
+						value: s.eva,
+						label: s.ds100 ? `${s.name} (${s.eva}, ${s.ds100})` : `${s.name} (${s.eva})`,
+					}));
+					if (obj.callback) this.sendTo(obj.from, obj.command, options, obj.callback);
 				} catch (err) {
-					if (obj.callback) this.sendTo(obj.from, obj.command, { error: err.message }, obj.callback);
+					this.log.error(`Stationssuche fehlgeschlagen: ${err.message}`);
+					if (obj.callback) this.sendTo(obj.from, obj.command, [], obj.callback);
 				}
 			})();
 		}

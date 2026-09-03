@@ -1,5 +1,23 @@
 {
-	"dbtimetables adapter settings": "Configurações do adaptador para dbtimetables",
-	"option1": "opção1",
-	"option2": "opção2"
+	"dbtimetables adapter settings": "Configurações do adaptador dbtimetables",
+	"Zugangsdaten": "Credenciais",
+	"Client-ID und API-Key erhältst du kostenlos unter developers.deutschebahn.com (Anwendung anlegen -> Timetables-API mit Free-Plan abonnieren).": "Obtenha gratuitamente o Client-ID e a API-Key em developers.deutschebahn.com (crie uma aplicação -> assine a API Timetables com o plano gratuito).",
+	"DB-Client-Id": "DB Client-Id",
+	"DB-Api-Key": "DB Api-Key",
+	"Aktualisierungsintervall (Sekunden)": "Intervalo de atualização (segundos)",
+	"Free-Plan erlaubt 60 Aufrufe/Minute. Pro Station werden ca. 2-3 Aufrufe pro Intervall verbraucht.": "O plano gratuito permite 60 solicitações/minuto. Cada estação consome cerca de 2-3 solicitações por intervalo.",
+	"Verspätet markieren ab (Minuten)": "Marcar como atrasado a partir de (minutos)",
+	"Farbe für pünktlich (HTML)": "Cor para pontual (HTML)",
+	"Farbe für Verspätung/Ausfall (HTML)": "Cor para atraso/cancelamento (HTML)",
+	"JSON-Elemente speichern": "Guardar elementos JSON",
+	"Abfahrtstafeln": "Painéis de partida",
+	"Tipp: Stationsnamen in \"Suchbegriff\" eintragen, dann rechts daneben im Feld \"EVA-Nummer\" aus den Vorschlägen die passende Station auswählen. Voraussetzung: die Instanz läuft bereits mit gültigem Client-Id/Api-Key. Alternativ kann die EVA-Nummer auch direkt eingetragen werden.": "Dica: introduza o nome da estação em \"Termo de pesquisa\" e depois escolha a estação correspondente nas sugestões do campo \"Número EVA\" ao lado. Requisito: a instância já deve estar em execução com um Client-Id/Api-Key válido. Em alternativa, o número EVA também pode ser introduzido diretamente.",
+	"Stationen": "Estações",
+	"Aktiv": "Ativo",
+	"Name (frei wählbar)": "Nome (livremente escolhido)",
+	"Suchbegriff (Stationsname)": "Termo de pesquisa (nome da estação)",
+	"EVA-Nummer": "Número EVA",
+	"Anzahl Abfahrten": "Número de partidas",
+	"Zeit-Offset (Min.)": "Deslocamento de tempo (min.)",
+	"Kategorie-Filter (z.B. S,RE,RB) leer = alle": "Filtro de categorias (p.ex. S,RE,RB), vazio = todas"
 }

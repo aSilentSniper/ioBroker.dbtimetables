@@ -1,59 +1,25 @@
 # ioBroker.dbtimetables
 
-Departure-board adapter based on the **official Deutsche Bahn Timetables API** (IRIS) from the
-[DB API Marketplace](https://developers.deutschebahn.com/db-api-marketplace/apis/product/timetables).
+A departure-board adapter built on Deutsche Bahn's official [Timetables API](https://developers.deutschebahn.com/db-api-marketplace/apis/product/timetables) (IRIS), instead of HAFAS.
 
-## English (short version)
+I wrote this as a replacement for the departure-board part of [ioBroker.fahrplan](https://github.com/gaudes/ioBroker.fahrplan), which relies on an unofficial HAFAS endpoint. HAFAS gives you a ready-made connection including realtime data in one call; IRIS only gives you the raw plan and, separately, whatever has changed since - this adapter fetches both and merges them itself. A German write-up with more background is in [docs/de/README.md](docs/de/README.md).
 
-This adapter polls Deutsche Bahn's official Timetables (IRIS) REST API for one or more stations
-(identified by their 7-digit EVA number) and publishes the next N departures per station as ioBroker
-states (line, destination, planned/actual time, delay in minutes, platform, cancelled flag), plus a
-ready-made JSON array and an HTML table for direct use in VIS.
+The adapter polls one or more stations (by their EVA number) and writes the next N departures per station into ioBroker states - line, destination, planned/actual time, delay, platform, cancellation - plus a JSON dump and a ready-made HTML table you can drop straight into a VIS view.
 
-**Setup**
-1. Register at [developers.deutschebahn.com](https://developers.deutschebahn.com/db-api-marketplace/apis/product), create an application and subscribe it to the free "Timetables" plan (60 requests/minute) to get a **Client-Id** and **Api-Key**.
-2. Find your station's EVA number, e.g. via `curl -H "DB-Client-Id: ..." -H "DB-Api-Key: ..." "https://apis.deutschebahn.com/db-api-marketplace/apis/timetables/v1/station/<name>"`.
-3. Enter Client-Id, Api-Key and one row per station (name, EVA number, number of departures, optional category filter) in the adapter configuration.
+## Getting an API key
 
-Data is provided by Deutsche Bahn AG under **CC BY 4.0** - attribution is required for any redistribution,
-see the license section on the [product page](https://developers.deutschebahn.com/db-api-marketplace/apis/product/timetables).
+Register at [developers.deutschebahn.com](https://developers.deutschebahn.com/db-api-marketplace/apis/product), create an application, and subscribe it to the free "Timetables" plan (60 requests/minute). That gives you a Client-Id and an Api-Key. Enter both on the "Credentials" tab of the instance and let it start once.
 
-**Changelog**
+## Finding a station
 
-### 0.1.0 (2026-09-03)
-- initial release: departure board per station, plan+changes merge, HTML/JSON output
+Stations are only addressed by a 7-digit EVA number, not by name. Once the instance is running with valid credentials, you don't need to look it up by hand: on the "Departure boards" tab, add a row and type the station name into "Search term" - the "EVA number" field next to it fills with matching stations to choose from.
 
-## Deutsch (ausführlich)
-
-Abfahrtstafel-Adapter auf Basis der **offiziellen Deutsche Bahn Timetables API** (IRIS) vom
-[DB API Marketplace](https://developers.deutschebahn.com/db-api-marketplace/apis/product/timetables),
-als Ersatz für den HAFAS-basierten [ioBroker.fahrplan](https://github.com/gaudes/ioBroker.fahrplan) für den
-Anwendungsfall "Abfahrtstafel für eine Station".
-
-> Unterschied zum alten Adapter: HAFAS liefert fertige Verbindungen inkl. Echtzeit in einem Aufruf.
-> Die Timetables-API liefert nur den rohen Sollfahrplan (`plan`) und separat die aktuellen Änderungen
-> (`fchg`/`rchg`), die zusammengeführt werden müssen. Das übernimmt dieser Adapter für dich.
-
-## 1. Zugangsdaten (Client-ID / API-Key) besorgen
-
-1. Auf [developers.deutschebahn.com](https://developers.deutschebahn.com/db-api-marketplace/apis/product) registrieren bzw. anmelden.
-2. Im Bereich **Anwendungen** eine neue Anwendung anlegen (nur ein Name ist Pflicht, z.B. "ioBroker").
-3. Zur Produktseite **[Timetables](https://developers.deutschebahn.com/db-api-marketplace/apis/product/timetables)** gehen und **Abonnieren** klicken.
-4. Nutzungsplan **Free** wählen (60 Aufrufe/Minute, kostenlos), die zuvor angelegte Anwendung auswählen, mit **Weiter** und **Fertig** abschließen.
-5. In der Anwendungsübersicht stehen jetzt **Client ID** und **Client Secret** (= API-Key). Beides in die Adapterkonfiguration eintragen.
-
-## 2. EVA-Nummer der Station herausfinden
-
-Die API kennt Stationen nur über ihre 7-stellige **EVA-Nummer**, nicht über den Namen. Zwei Wege, sie zu finden:
-
-**Per curl (empfohlen, sofort verfügbar):**
+That search asks the running adapter instance for results, so it only works once the instance is actually up with saved credentials. If it isn't (or comes back empty), the field still accepts a manually typed EVA number, or you can look one up directly:
 
 ```bash
-curl -H "DB-Client-Id: DEINE_CLIENT_ID" -H "DB-Api-Key: DEIN_API_KEY" \
+curl -H "DB-Client-Id: YOUR_CLIENT_ID" -H "DB-Api-Key: YOUR_API_KEY" \
   "https://apis.deutschebahn.com/db-api-marketplace/apis/timetables/v1/station/Karlsruhe"
 ```
-
-Antwort z.B.:
 
 ```xml
 <stations>
@@ -62,126 +28,114 @@ Antwort z.B.:
 </stations>
 ```
 
-Die `eva`-Nummer (hier `8000191`) trägst du in die Stationentabelle ein.
-
-**Per ioBroker-Skript / sendTo**, sobald der Adapter läuft und Zugangsdaten hinterlegt sind:
+or from an ioBroker script, once the adapter is running:
 
 ```js
 sendTo('dbtimetables.0', 'searchStation', { pattern: 'Karlsruhe' }, (res) => {
+    // res: [{ value: eva, label: "Name (eva, ds100)" }, ...]
     console.log(JSON.stringify(res));
 });
 ```
 
-## 3. Installation
+## Configuration
 
-Da dies ein selbst erstellter Adapter ist (nicht im offiziellen ioBroker-Repository), installierst du ihn lokal:
+Credentials tab:
 
-```bash
-cd /opt/iobroker            # bzw. dein ioBroker-Installationsverzeichnis
-npm install /pfad/zu/iobroker.dbtimetables --production
-iobroker add dbtimetables
-```
-
-Alternativ in der Admin-Oberfläche unter **Adapter → Eigenen Adapter installieren** den entpackten Ordnerpfad
-bzw. eine Git-URL angeben, falls du das Projekt in ein eigenes Repository legst.
-
-## 4. Konfiguration
-
-**Tab "Zugangsdaten"**
-
-| Feld | Beschreibung |
+| Field | What it does |
 |---|---|
-| DB-Client-Id / DB-Api-Key | siehe Schritt 1 |
-| Aktualisierungsintervall | wie oft neu abgefragt wird (Sekunden). Pro Durchlauf verbraucht jede Station 2-5 API-Aufrufe (1x Changes + 1-4x Plan-Stundenslices). Beim Free-Plan (60/min) reichen bei wenigen Stationen auch 30-60s. |
-| Verspätet markieren ab | ab wie vielen Minuten Verspätung eine Abfahrt als "delayed" markiert wird (Standard 2, wie beim alten Adapter) |
+| DB-Client-Id / DB-Api-Key | from the DB API Marketplace, see above |
+| Update interval | how often the adapter polls, in seconds. Each run costs 2-5 API calls per station (one for changes, one to four for plan hour-slices). 30-60s is fine for a handful of stations on the free plan. |
+| Mark as delayed from | delay in minutes after which a departure counts as "delayed" (default 2, same as the old adapter) |
 
-**Tab "Abfahrtstafeln"** – eine Zeile pro gewünschter Station:
+Departure boards tab, one row per station:
 
-| Feld | Beschreibung |
+| Field | What it does |
 |---|---|
-| Aktiv | Zeile aktiv/inaktiv |
-| Name | frei wählbarer Name, wird zum Objekt-Ordnernamen (`stations.<Name>`) |
-| EVA-Nummer | siehe Schritt 2 |
-| Anzahl Abfahrten | wie viele nächste Abfahrten abgerufen werden |
-| Zeit-Offset (Min.) | Abfahrten erst ab jetzt+N Minuten anzeigen (Pendant zu "Zeit-Offset" beim alten Adapter), Standard 0 |
-| Kategorie-Filter | optional, z.B. `S,RE,RB` um nur bestimmte Zuggattungen zu zeigen; leer = alle |
+| Active | enable/disable this row |
+| Name | whatever you want to call it, becomes the object folder name (`stations.<Name>`) |
+| Search term | station name used for the EVA-number search above |
+| EVA number | the actual station id used for API calls |
+| Number of departures | how many upcoming departures to fetch |
+| Time offset (min.) | skip departures earlier than now+N minutes, default 0 |
+| Category filter | e.g. `S,RE,RB` to only show certain train categories, empty for all |
 
-## 5. Objektbaum – kompatibel zu ioBroker.fahrplan (nur Abfahrtstafeln)
+## Object tree
 
-Ich habe mir den tatsächlichen Quellcode von `ioBroker.fahrplan` (`lib/deptt.js`, `lib/depttdep.js`, `lib/line.js`,
-`lib/station.js`) angesehen und das Objektschema für die Abfahrtstafeln-Funktion bewusst identisch nachgebaut, damit
-bestehende VIS-Bindings/Skripte im Idealfall nur den Instanznamen (`fahrplan.0` → `dbtimetables.0`) austauschen müssen.
+I kept the object schema for the departure-board feature identical to `ioBroker.fahrplan`'s (`lib/deptt.js`, `lib/depttdep.js`, `lib/line.js`, `lib/station.js`), so existing VIS bindings and scripts ideally only need the instance name swapped (`fahrplan.0` → `dbtimetables.0`).
 
 ```
-dbtimetables.0.DepartureTimetable<N>.Enabled                     bool - wird auch für deaktivierte Zeilen geschrieben
-dbtimetables.0.DepartureTimetable<N>.Station.Name                Stationsname
-dbtimetables.0.DepartureTimetable<N>.Station.eBhf                Stations-ID (bei uns: EVA-Nummer)
-dbtimetables.0.DepartureTimetable<N>.Station.CustomName           frei vergebener Name
-dbtimetables.0.DepartureTimetable<N>.Station.Type                 fix "station"
+dbtimetables.0.DepartureTimetable<N>.Enabled                     bool - also written for disabled rows
+dbtimetables.0.DepartureTimetable<N>.Station.Name                station name
+dbtimetables.0.DepartureTimetable<N>.Station.eBhf                station id (here: EVA number)
+dbtimetables.0.DepartureTimetable<N>.Station.CustomName           freely assigned name
+dbtimetables.0.DepartureTimetable<N>.Station.Type                 fixed "station"
 dbtimetables.0.DepartureTimetable<N>.Station.JSON
-dbtimetables.0.DepartureTimetable<N>.JSON                         komplette Abfahrtenliste als JSON
-dbtimetables.0.DepartureTimetable<N>.HTML                         fertige HTML-Tabelle (Spalten: Zeit/Richtung/Plattform/Verspätung/Typ, wie im Original)
-dbtimetables.0.DepartureTimetable<N>.<i>.JSON                     Einzelabfahrt als JSON
-dbtimetables.0.DepartureTimetable<N>.<i>.Departure                 Ist-Abfahrt, ms-Timestamp (wie im Original)
-dbtimetables.0.DepartureTimetable<N>.<i>.DeparturePlanned           Plan-Abfahrt, ms-Timestamp
-dbtimetables.0.DepartureTimetable<N>.<i>.DepartureDelaySeconds      Verspätung in Sekunden
-dbtimetables.0.DepartureTimetable<N>.<i>.DepartureOnTime            bool (nur bei exakt 0 Verspätung true - Quirk des Originals bewusst übernommen)
-dbtimetables.0.DepartureTimetable<N>.<i>.DepartureDelayed           bool (erst ab Schwellwert true)
-dbtimetables.0.DepartureTimetable<N>.<i>.Name                      Linienname, z.B. "ICE 273"
-dbtimetables.0.DepartureTimetable<N>.<i>.Direction                 Fahrtziel
-dbtimetables.0.DepartureTimetable<N>.<i>.Mode                      grobe Näherung "train"/"bus"/"tram" (IRIS kennt HAFAS' "mode" nicht)
-dbtimetables.0.DepartureTimetable<N>.<i>.Operator                  numerischer EVU-Code (IRIS liefert keinen Klarnamen wie HAFAS)
-dbtimetables.0.DepartureTimetable<N>.<i>.Product                   Zuggattung (ICE/RE/RB/S/...), Ersatz für HAFAS-Produkt-ID
-dbtimetables.0.DepartureTimetable<N>.<i>.Platform                  aktuelles Gleis
-dbtimetables.0.DepartureTimetable<N>.<i>.PlannedPlatform            geplantes Gleis
-dbtimetables.0.DepartureTimetable<N>.<i>.Cancelled                  ZUSATZFELD, gab es im Original nicht (IRIS liefert Ausfälle, HAFAS-Version der Abfahrtstafel nicht)
+dbtimetables.0.DepartureTimetable<N>.JSON                         complete departure list as JSON
+dbtimetables.0.DepartureTimetable<N>.HTML                         ready-made HTML table (time/direction/platform/delay/type)
+dbtimetables.0.DepartureTimetable<N>.<i>.JSON                     single departure as JSON
+dbtimetables.0.DepartureTimetable<N>.<i>.Departure                 actual departure, ms timestamp
+dbtimetables.0.DepartureTimetable<N>.<i>.DeparturePlanned           planned departure, ms timestamp
+dbtimetables.0.DepartureTimetable<N>.<i>.DepartureDelaySeconds      delay in seconds
+dbtimetables.0.DepartureTimetable<N>.<i>.DepartureOnTime            bool, only true for exactly 0 delay (a quirk of the original that I kept on purpose)
+dbtimetables.0.DepartureTimetable<N>.<i>.DepartureDelayed           bool, true only from the threshold on
+dbtimetables.0.DepartureTimetable<N>.<i>.Name                      line name, e.g. "ICE 273"
+dbtimetables.0.DepartureTimetable<N>.<i>.Direction                 destination
+dbtimetables.0.DepartureTimetable<N>.<i>.Mode                      rough guess at "train"/"bus"/"tram" - IRIS has no equivalent to HAFAS' "mode"
+dbtimetables.0.DepartureTimetable<N>.<i>.Operator                  numeric operator code - IRIS gives no display name like HAFAS does
+dbtimetables.0.DepartureTimetable<N>.<i>.Product                   train category (ICE/RE/RB/S/...), replaces the HAFAS product id
+dbtimetables.0.DepartureTimetable<N>.<i>.Platform                  current platform
+dbtimetables.0.DepartureTimetable<N>.<i>.PlannedPlatform            planned platform
+dbtimetables.0.DepartureTimetable<N>.<i>.Cancelled                  not present in the original - IRIS reports cancellations, the HAFAS-based board didn't
 ```
 
-**Was NICHT automatisch kompatibel ist:**
-- **Instanzname** bleibt zwangsläufig anders (`dbtimetables.0` statt `fahrplan.0`) – zwei verschiedene Adapter können
-  keinen identischen Objektpfad-Präfix haben. Jede Bindung/jedes Skript muss also mindestens den Instanznamen anpassen.
-- **Konfiguration** wird nicht automatisch übernommen (andere `native`-Struktur) – die Stationstabelle muss manuell neu
-  angelegt werden. Gute Nachricht: die `station_from`-ID aus dem alten Adapter ist bei echten DB-Bahnhöfen über die
-  DB-HAFAS-Anbindung meist ohnehin die EVA-Nummer – ein Blick in die alte Konfiguration lohnt sich, bevor man die
-  EVA-Nummer neu sucht.
-- **`Mode`** ist nur grob genähert (immer "train", außer erkennbar Bus/Tram), da IRIS dieses HAFAS-Konzept nicht kennt.
-- **`Operator`** ist der rohe numerische EVU-Code aus IRIS (z.B. "80"), nicht der Klarname wie bei HAFAS ("DB Fernverkehr AG").
-  Es gibt keine mir bekannte offizielle, öffentliche Code→Name-Tabelle dafür.
-- **`Product`** ist die DB-Zuggattung (ICE/IC/RE/RB/S/...) statt einer HAFAS-Produkt-ID - inhaltlich vergleichbar, aber
-  andere Werte-Domäne. Der alte Kategorie-Filter (`traintype`, HAFAS-Produkt-IDs) muss daher in unserem neuen
-  Kategorie-Filter-Feld (DB-Gattungscodes) manuell neu konfiguriert werden.
-- Anders als beim alten Adapter ist hier ein **API-Key nötig** (siehe Abschnitt 1) - HAFAS über hafas-client brauchte
-  keine Registrierung.
-- Die Funktionen **Verbindungen/Routen** und **Verspätungsalarm** des alten Adapters sind hier (noch) nicht enthalten.
+A few things that won't just carry over from the old adapter, though: the instance name is necessarily different, so every binding/script needs at least that adjusted. Configuration isn't migrated automatically either - the station table has to be rebuilt by hand (tip: the old adapter's `station_from` id is usually already the EVA number for real DB stations, so it's worth checking the old config before searching again). `Mode` is only ever a rough guess, `Operator` stays a raw numeric code since I don't know of a public code-to-name table for it, and `Product` uses DB's own category codes rather than HAFAS product ids, so the old category filter needs reconfiguring. You'll also need an API key here, unlike the HAFAS-based version. Connections/routing and the delay-alert feature from the old adapter aren't in here (yet).
 
+## Known limitations
 
+- Delay reason texts (the `<m>` element) aren't translated to plain text - DB only exposes internal codes with no official text list, so this would need a manually maintained lookup in `lib/dbTimetablesClient.js`.
+- Time parsing assumes the ioBroker host runs in `Europe/Berlin`, which is the default for German installations. A different server timezone would need `parseIrisTime` in `lib/dbTimetablesClient.js` adjusted.
+- No built-in delay alert, but it's a one-liner in an ioBroker script against `.departures.0.delayed`.
+- The free plan caps out at 60 requests/minute - with many stations and a short poll interval you'll start seeing HTTP 429 in the log, so back off the interval or trim the station list.
 
-## 6. Bekannte Einschränkungen / mögliche Erweiterungen
+## Data license
 
-- **Meldungstexte** (Verspätungsgründe, Freitexte über das `<m>`-Element) werden aktuell nicht in Klartext
-  übersetzt (DB liefert dafür nur interne Codes ohne offizielle Textliste) - bei Bedarf in `lib/dbTimetablesClient.js`
-  ergänzbar.
-- Die Zeitumrechnung geht davon aus, dass der ioBroker-Host in der Zeitzone **Europe/Berlin** läuft (Standard bei
-  deutschen Installationen). Bei einer anderen Server-Zeitzone müsste `parseIrisTime` in `lib/dbTimetablesClient.js`
-  angepasst werden.
-- Verspätungsalarm (wie im alten Adapter) ist hier nicht eingebaut, lässt sich aber leicht per ioBroker-Skript auf
-  Basis von `.departures.0.delayed` nachbauen.
-- Free-Plan = 60 Aufrufe/Minute. Bei vielen Stationen und kurzem Intervall ggf. Rate-Limit-Fehler (HTTP 429) im Log -
-  dann Intervall erhöhen oder Stationsanzahl reduzieren.
+The data itself is licensed by Deutsche Bahn AG under CC BY 4.0 - if you redistribute or publish it, you need to attribute DB, see the license section on the [product page](https://developers.deutschebahn.com/db-api-marketplace/apis/product/timetables).
 
-## 7. Lizenzhinweis zu den Daten
-
-Die von der API gelieferten Daten stehen unter **CC BY 4.0** (Deutsche Bahn AG). Bei Weiterverwendung/Veröffentlichung
-ist eine Namensnennung der DB erforderlich, siehe Lizenzbedingungen auf der
-[Produktseite](https://developers.deutschebahn.com/db-api-marketplace/apis/product/timetables).
-
-## Tests
+## Developer tests
 
 ```bash
 npm install
 npm test
 ```
 
-`test/test-merge.js` prüft die Zusammenführung von Plan- und Change-Daten anhand eines Einzelbeispiels,
-`test/test-client.js` testet den kompletten Client (Stationssuche, Mehrstunden-Lookahead, Sortierung,
-Kategorie-Filter, Ausfälle) gegen einen gemockten HTTP-Layer.
+`test/test-merge.js` checks merging plan and change data on a single example, `test/test-client.js` exercises the full client (search, multi-hour lookahead, sorting, category filter, cancellations) against a mocked HTTP layer.
+
+## Changelog
+
+### 0.1.0 (2026-09-03)
+
+- initial release: departure board per station, plan+changes merge, HTML/JSON output, admin UI station search
+
+## License
+
+MIT License
+
+Copyright (c) 2026
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
