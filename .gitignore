@@ -1,30 +1,18 @@
-# dependencies
-node_modules/
-package-lock.json
-npm-debug.log*
+# No dot-directories except github/vscode
+.*/
+!.vscode/
+!.github/
 
-# build/test output
-coverage/
-.nyc_output/
-*.tgz
+*.code-workspace
+node_modules
+nbproject
 
-# ioBroker-spezifisch (falls @iobroker/testing lokal einen Test-Controller anlegt)
-iobroker-data/
-tmp/
+# npm package files
+iobroker.*.tgz
 
-# Editor/IDE
-.vscode/
-.idea/
-*.swp
-
-# OS
-.DS_Store
 Thumbs.db
+.commitinfo
 
-# Umgebungsvariablen / Secrets - NIE committen
-.env
-.env.*
-
-# Logs
-*.log
-logs/
+# i18n intermediate files
+admin/i18n/flat.txt
+admin/i18n/*/flat.txt
