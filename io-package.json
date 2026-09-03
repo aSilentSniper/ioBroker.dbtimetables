@@ -5,47 +5,77 @@
     "news": {
       "0.1.0": {
         "en": "initial release",
-        "de": "Erstveröffentlichung"
+        "de": "Erstveröffentlichung",
+        "ru": "первый релиз",
+        "pt": "lançamento inicial",
+        "nl": "eerste release",
+        "fr": "version initiale",
+        "it": "rilascio iniziale",
+        "es": "lanzamiento inicial",
+        "pl": "pierwsze wydanie",
+        "uk": "перший реліз",
+        "zh-cn": "初始版本"
       }
     },
-    "title": "DB Timetables",
     "titleLang": {
       "en": "DB Timetables",
-      "de": "DB Timetables"
+      "de": "DB Timetables",
+      "ru": "DB Timetables",
+      "pt": "DB Timetables",
+      "nl": "DB Timetables",
+      "fr": "DB Timetables",
+      "it": "DB Timetables",
+      "es": "DB Timetables",
+      "pl": "DB Timetables",
+      "uk": "DB Timetables",
+      "zh-cn": "DB Timetables"
     },
     "desc": {
       "en": "Departure boards for German train/S-Bahn stations based on the official Deutsche Bahn Timetables (IRIS) API",
-      "de": "Abfahrtstafeln für Bahnhöfe/Haltestellen auf Basis der offiziellen Deutsche Bahn Timetables (IRIS) API"
+      "de": "Abfahrtstafeln für Bahnhöfe/Haltestellen auf Basis der offiziellen Deutsche Bahn Timetables (IRIS) API",
+      "ru": "Табло отправления для немецких вокзалов на основе официального API Deutsche Bahn Timetables (IRIS)",
+      "pt": "Painéis de partida para estações ferroviárias alemãs, baseado na API oficial Deutsche Bahn Timetables (IRIS)",
+      "nl": "Vertrekborden voor Duitse treinstations, gebaseerd op de officiële Deutsche Bahn Timetables (IRIS) API",
+      "fr": "Tableaux de départ pour les gares allemandes, basés sur l'API officielle Deutsche Bahn Timetables (IRIS)",
+      "it": "Tabelloni delle partenze per le stazioni ferroviarie tedesche, basati sull'API ufficiale Deutsche Bahn Timetables (IRIS)",
+      "es": "Paneles de salidas para estaciones de tren alemanas, basados en la API oficial Deutsche Bahn Timetables (IRIS)",
+      "pl": "Tablice odjazdów dla niemieckich stacji kolejowych, oparte na oficjalnym API Deutsche Bahn Timetables (IRIS)",
+      "uk": "Табло відправлення для німецьких залізничних станцій на основі офіційного API Deutsche Bahn Timetables (IRIS)",
+      "zh-cn": "基于德国铁路官方 Timetables (IRIS) API 的德国火车站发车信息板"
     },
     "authors": [
-      "Dein Name <deine.email@example.com>"
+      "Christian Lerch <christian.lerch@softwareschmiede-lerch.de>"
     ],
     "keywords": ["db", "deutsche bahn", "timetables", "iris", "abfahrtstafel", "bahn"],
-    "license": "MIT",
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
     "platform": "Javascript/Node.js",
     "mode": "daemon",
     "type": "date-and-time",
+    "tier": 3,
     "compact": true,
     "connectionType": "cloud",
     "dataSource": "poll",
     "icon": "dbtimetables.png",
-    "extIcon": "https://raw.githubusercontent.com/DEIN-GITHUB-USER/ioBroker.dbtimetables/master/admin/dbtimetables.png",
+    "extIcon": "https://raw.githubusercontent.com/aSilentSniper/ioBroker.dbtimetables/master/admin/dbtimetables.png",
     "adminUI": {
       "config": "json"
     },
     "dependencies": [
       {
-        "js-controller": ">=5.0.0"
+        "js-controller": ">=5.0.19"
       }
     ],
     "globalDependencies": [
       {
         "admin": ">=6.0.0"
       }
-    ],
-    "encryptedNative": ["apiKey"],
-    "protectedNative": ["apiKey"]
+    ]
   },
+  "encryptedNative": ["apiKey"],
+  "protectedNative": ["apiKey"],
   "native": {
     "clientId": "",
     "apiKey": "",

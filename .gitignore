@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# build/test output
+coverage/
+.nyc_output/
+*.tgz
+
+# ioBroker-spezifisch (falls @iobroker/testing lokal einen Test-Controller anlegt)
+iobroker-data/
+tmp/
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Umgebungsvariablen / Secrets - NIE committen
+.env
+.env.*
+
+# Logs
+*.log
+logs/

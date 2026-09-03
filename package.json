@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "description": "ioBroker Adapter für Abfahrtstafeln auf Basis der offiziellen DB Timetables API (developers.deutschebahn.com)",
   "author": {
-    "name": "Dein Name",
-    "email": "deine.email@example.com"
+    "name": "Christian Lerch",
+    "email": "christian.lerch@softwareschmiede-lerch.de"
   },
   "license": "MIT",
-  "homepage": "https://github.com/DEIN-GITHUB-USER/ioBroker.dbtimetables",
+  "homepage": "https://github.com/aSilentSniper/ioBroker.dbtimetables",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aSilentSniper/ioBroker.dbtimetables.git"
+  },
   "keywords": [
     "ioBroker",
     "Deutsche Bahn",
@@ -27,7 +31,7 @@
     "LICENSE"
   ],
   "dependencies": {
-    "@iobroker/adapter-core": "^3.1.6",
+    "@iobroker/adapter-core": "^3.2.2",
     "fast-xml-parser": "^4.3.6"
   },
   "devDependencies": {
