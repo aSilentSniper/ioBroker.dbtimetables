@@ -12,9 +12,9 @@ Register at [developers.deutschebahn.com](https://developers.deutschebahn.com/db
 
 ## Finding a station
 
-Stations are only addressed by a 7-digit EVA number, not by name. Once the instance is running with valid credentials, you don't need to look it up by hand: on the "Departure boards" tab, add a row and type the station name into "Search term" - the "EVA number" field next to it fills with matching stations to choose from.
+Stations are only addressed by a 7-digit EVA number, not by name. The "Departure boards" tab has a search box for exactly this: type a station name, hit "Suchen", and add whichever match you want straight to the station list below it with one click - no manual EVA lookup needed. That box is a small custom Admin UI component (requires **Admin 8 or newer**), built in `src-admin/` and shipped as `admin/custom/customComponents.js`; see [Developer tests](#developer-tests) for how to rebuild it.
 
-That search asks the running adapter instance for results, so it only works once the instance is actually up with saved credentials. If it isn't (or comes back empty), the field still accepts a manually typed EVA number, or you can look one up directly:
+That search asks the running adapter instance for results, so it only works once the instance is actually up with saved credentials. If it isn't (or comes back empty), you can still add a station manually and type in the EVA number by hand, or look one up directly:
 
 ```bash
 curl -H "DB-Client-Id: YOUR_CLIENT_ID" -H "DB-Api-Key: YOUR_API_KEY" \
@@ -47,13 +47,12 @@ Credentials tab:
 | Update interval | how often the adapter polls, in seconds. Each run costs 2-5 API calls per station (one for changes, one to four for plan hour-slices). 30-60s is fine for a handful of stations on the free plan. |
 | Mark as delayed from | delay in minutes after which a departure counts as "delayed" (default 2, same as the old adapter) |
 
-Departure boards tab, one row per station:
+Departure boards tab: a search box (see [Finding a station](#finding-a-station)) plus one row per station, managed directly in that same custom component:
 
 | Field | What it does |
 |---|---|
 | Active | enable/disable this row |
 | Name | whatever you want to call it, becomes the object folder name (`stations.<Name>`) |
-| Search term | station name used for the EVA-number search above |
 | EVA number | the actual station id used for API calls |
 | Number of departures | how many upcoming departures to fetch |
 | Time offset (min.) | skip departures earlier than now+N minutes, default 0 |
@@ -109,6 +108,16 @@ npm test
 ```
 
 `test/test-merge.js` checks merging plan and change data on a single example, `test/test-client.js` exercises the full client (search, multi-hour lookahead, sorting, category filter, cancellations) against a mocked HTTP layer.
+
+## Rebuilding the admin UI component
+
+The station-search-and-management widget on the "Departure boards" tab is a separate React project under `src-admin/`, built with Vite and Module Federation against `@iobroker/gui-components` (Admin 8+). It's not part of the regular `npm test`/`npm run lint` flow because it has its own dependency tree. To rebuild it after changing anything in `src-admin/src/`:
+
+```bash
+npm run build-admin-ui
+```
+
+This installs `src-admin`'s own dependencies, builds it with Vite, and copies the result into `admin/custom/`, which is what actually ships with the adapter (`admin/jsonConfig.json` references it via `type: "custom"`).
 
 ## Changelog
 

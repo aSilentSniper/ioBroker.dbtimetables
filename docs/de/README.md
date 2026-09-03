@@ -26,17 +26,16 @@ Die API kennt Stationen nur über ihre 7-stellige **EVA-Nummer**, nicht über de
 
 **Direkt in der Instanzkonfiguration (empfohlen):**
 
-1. Client-Id und Api-Key eintragen, speichern - die Instanz muss dafür einmal laufen (Zugriff über die
-   Instanz selbst, siehe Voraussetzung unten).
-2. Im Tab "Abfahrtstafeln" eine Zeile anlegen und in der Spalte **"Suchbegriff"** den (Teil-)Namen der
-   Station eintragen, z.B. "Karlsruhe".
-3. Im Feld **"EVA-Nummer"** daneben öffnet sich automatisch eine Auswahlliste mit den passenden
-   Treffern (Name + EVA-Nummer, ggf. DS100-Kürzel) - Treffer auswählen, fertig.
+Im Tab "Abfahrtstafeln" gibt es dafür eine eigene Suche (ein selbstgebautes Admin-8-Custom-Widget, Quellcode
+unter `src-admin/`): Stationsnamen eintippen, "Suchen" klicken, Treffer per Klick zur Stationsliste darunter
+hinzufügen - fertig. Die komplette Stationsverwaltung (hinzufügen, bearbeiten, löschen, aktivieren) läuft in
+diesem einen Widget statt in einer klassischen jsonConfig-Tabelle.
 
 Voraussetzung: Die Adapterinstanz läuft bereits mit gültigem Client-Id/Api-Key (die Suche fragt die
-laufende Instanz per `sendTo` ab). Ist die Instanz nicht aktiv oder sind die Zugangsdaten noch nicht
-gespeichert, bleibt die Auswahlliste leer - die EVA-Nummer kann dann trotzdem manuell eingetragen werden,
-das Feld akzeptiert auch Freitext.
+laufende Instanz per `sendTo` ab) **und Admin ist Version 8 oder neuer** - das Widget nutzt die neue,
+React-basierte Custom-Component-API von Admin 8 (Module Federation, `guiApi: 2`). Ist die Instanz nicht
+aktiv oder sind die Zugangsdaten noch nicht gespeichert, kommt eine Fehlermeldung im Widget - die
+EVA-Nummer kann dann trotzdem manuell in der Stationsliste eingetragen werden.
 
 **Alternativ per curl** (z.B. wenn die Instanz noch nicht läuft):
 
@@ -81,13 +80,12 @@ Ordnerpfad oder eine Git-URL angibst (falls das Projekt in einem eigenen Reposit
 | Aktualisierungsintervall | wie oft neu abgefragt wird (Sekunden). Pro Durchlauf verbraucht jede Station 2-5 API-Aufrufe (1x Changes + 1-4x Plan-Stundenslices). Beim Free-Plan (60/min) reichen bei wenigen Stationen auch 30-60s. |
 | Verspätet markieren ab | ab wie vielen Minuten Verspätung eine Abfahrt als "delayed" markiert wird (Standard 2, wie beim alten Adapter) |
 
-**Tab "Abfahrtstafeln"** – eine Zeile pro gewünschter Station:
+**Tab "Abfahrtstafeln"** – Suche (siehe Schritt 2) plus eine Zeile pro gewünschter Station:
 
 | Feld | Beschreibung |
 |---|---|
 | Aktiv | Zeile aktiv/inaktiv |
 | Name | frei wählbarer Name, wird zum Objekt-Ordnernamen (`stations.<Name>`) |
-| Suchbegriff | Stationsname zur Live-Suche, siehe Schritt 2 |
 | EVA-Nummer | siehe Schritt 2 |
 | Anzahl Abfahrten | wie viele nächste Abfahrten abgerufen werden |
 | Zeit-Offset (Min.) | Abfahrten erst ab jetzt+N Minuten anzeigen (Pendant zu "Zeit-Offset" beim alten Adapter), Standard 0 |

@@ -99,80 +99,17 @@
       "type": "panel",
       "label": "Abfahrtstafeln",
       "items": {
-        "_hint2": {
-          "type": "staticText",
-          "text": "Tipp: Stationsnamen in \"Suchbegriff\" eintragen, dann rechts daneben im Feld \"EVA-Nummer\" aus den Vorschlägen die passende Station auswählen. Voraussetzung: die Instanz läuft bereits mit gültigem Client-Id/Api-Key. Alternativ kann die EVA-Nummer auch direkt eingetragen werden.",
+        "stations": {
+          "type": "custom",
+          "i18n": false,
+          "url": "custom/customComponents.js",
+          "name": "DbtimetablesAdminSet/Components/StationManager",
+          "guiApi": 2,
           "xs": 12,
           "sm": 12,
           "md": 12,
           "lg": 12,
           "xl": 12
-        },
-        "stations": {
-          "type": "table",
-          "label": "Stationen",
-          "newLine": true,
-          "xs": 12,
-          "sm": 12,
-          "md": 12,
-          "lg": 12,
-          "xl": 12,
-          "items": [
-            {
-              "type": "checkbox",
-              "attr": "active",
-              "title": "Aktiv",
-              "default": true,
-              "width": "8%"
-            },
-            {
-              "type": "text",
-              "attr": "name",
-              "title": "Name (frei wählbar)",
-              "width": "18%"
-            },
-            {
-              "type": "text",
-              "attr": "stationQuery",
-              "title": "Suchbegriff (Stationsname)",
-              "default": "",
-              "width": "18%"
-            },
-            {
-              "type": "autocompleteSendTo",
-              "attr": "evaNo",
-              "title": "EVA-Nummer",
-              "command": "searchStation",
-              "jsonData": "{\"pattern\": \"${data.stationQuery}\"}",
-              "alsoDependsOn": ["stationQuery"],
-              "freeSolo": true,
-              "width": "16%"
-            },
-            {
-              "type": "number",
-              "attr": "count",
-              "title": "Anzahl Abfahrten",
-              "default": 5,
-              "min": 1,
-              "max": 20,
-              "width": "10%"
-            },
-            {
-              "type": "number",
-              "attr": "timeOffsetMinutes",
-              "title": "Zeit-Offset (Min.)",
-              "default": 0,
-              "min": 0,
-              "max": 1440,
-              "width": "10%"
-            },
-            {
-              "type": "text",
-              "attr": "categories",
-              "title": "Kategorie-Filter (z.B. S,RE,RB) leer = alle",
-              "width": "20%"
-            }
-          ]
         }
       }
     }

@@ -10,14 +10,5 @@
 	"Farbe für pünktlich (HTML)": "Color for on-time (HTML)",
 	"Farbe für Verspätung/Ausfall (HTML)": "Color for delay/cancellation (HTML)",
 	"JSON-Elemente speichern": "Save JSON elements",
-	"Abfahrtstafeln": "Departure boards",
-	"Tipp: Stationsnamen in \"Suchbegriff\" eintragen, dann rechts daneben im Feld \"EVA-Nummer\" aus den Vorschlägen die passende Station auswählen. Voraussetzung: die Instanz läuft bereits mit gültigem Client-Id/Api-Key. Alternativ kann die EVA-Nummer auch direkt eingetragen werden.": "Tip: enter the station name in \"Search term\", then pick the matching station from the suggestions in the \"EVA number\" field next to it. Requirement: the instance must already be running with a valid Client-Id/Api-Key. Alternatively, the EVA number can also be entered directly.",
-	"Stationen": "Stations",
-	"Aktiv": "Active",
-	"Name (frei wählbar)": "Name (freely chosen)",
-	"Suchbegriff (Stationsname)": "Search term (station name)",
-	"EVA-Nummer": "EVA number",
-	"Anzahl Abfahrten": "Number of departures",
-	"Zeit-Offset (Min.)": "Time offset (min.)",
-	"Kategorie-Filter (z.B. S,RE,RB) leer = alle": "Category filter (e.g. S,RE,RB), empty = all"
+	"Abfahrtstafeln": "Departure boards"
 }

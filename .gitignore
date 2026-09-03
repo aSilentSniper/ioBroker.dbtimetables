@@ -10,6 +10,10 @@ nbproject
 # npm package files
 iobroker.*.tgz
 
+# intermediate build output of src-admin (npm run build-admin-ui copies the
+# relevant result into admin/custom/, which IS committed)
+src-admin/build/
+
 Thumbs.db
 .commitinfo
 

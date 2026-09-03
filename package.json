@@ -33,25 +33,28 @@
     "@alcalzone/release-script-plugin-license": "^5.2.2",
     "@alcalzone/release-script-plugin-manual-review": "^5.2.0",
     "@iobroker/adapter-dev": "^1.5.0",
+    "@iobroker/build-tools": "^3.0.1",
     "@iobroker/dev-server": "^0.8.0",
     "@iobroker/eslint-config": "^2.3.4",
     "@iobroker/testing": "^5.3.0",
     "@tsconfig/node20": "^20.1.6",
     "@types/iobroker": "npm:@iobroker/types@^7.2.2",
     "@types/node": "^20.19.20",
+    "tsx": "^4.19.2",
     "typescript": "~5.9.3"
   },
   "main": "main.js",
   "files": [
     "admin{,/!(src)/**}/!(tsconfig|tsconfig.*|.eslintrc).{json,json5}",
     "admin{,/!(src)/**}/*.{html,css,png,svg,jpg,js}",
+    "admin/custom/**/*",
     "lib/",
     "io-package.json",
     "LICENSE",
     "main.js"
   ],
   "scripts": {
-    "test:js": "mocha --config test/mocharc.custom.json \"{!(node_modules|test)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup).js}\"",
+    "test:js": "mocha --config test/mocharc.custom.json \"{!(node_modules|test|src-admin)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup).js}\"",
     "test:package": "mocha test/package --exit",
     "test:integration": "mocha test/integration --exit",
     "test": "npm run test:js && npm run test:package",
@@ -59,7 +62,8 @@
     "lint": "eslint -c eslint.config.mjs .",
     "translate": "translate-adapter",
     "release": "release-script",
-    "dev-server": "dev-server"
+    "dev-server": "dev-server",
+    "build-admin-ui": "tsx tasks.ts"
   },
   "bugs": {
     "url": "https://github.com/aSilentSniper/ioBroker.dbtimetables/issues"
