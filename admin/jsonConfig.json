@@ -1,0 +1,136 @@
+{
+  "type": "tabs",
+  "i18n": true,
+  "items": {
+    "_general": {
+      "type": "panel",
+      "label": "Zugangsdaten",
+      "items": {
+        "_hint": {
+          "type": "staticText",
+          "text": "Client-ID und API-Key erhältst du kostenlos unter developers.deutschebahn.com (Anwendung anlegen -> Timetables-API mit Free-Plan abonnieren).",
+          "newLine": true,
+          "sm": 12
+        },
+        "clientId": {
+          "type": "text",
+          "label": "DB-Client-Id",
+          "sm": 12,
+          "md": 6,
+          "newLine": true
+        },
+        "apiKey": {
+          "type": "password",
+          "label": "DB-Api-Key",
+          "sm": 12,
+          "md": 6,
+          "visible": true
+        },
+        "pollInterval": {
+          "type": "number",
+          "label": "Aktualisierungsintervall (Sekunden)",
+          "min": 20,
+          "max": 3600,
+          "default": 60,
+          "sm": 12,
+          "md": 6,
+          "newLine": true,
+          "help": "Free-Plan erlaubt 60 Aufrufe/Minute. Pro Station werden ca. 2-3 Aufrufe pro Intervall verbraucht."
+        },
+        "delayMinutesThreshold": {
+          "type": "number",
+          "label": "Verspätet markieren ab (Minuten)",
+          "min": 0,
+          "max": 60,
+          "default": 2,
+          "sm": 12,
+          "md": 6
+        },
+        "colorOnTime": {
+          "type": "text",
+          "label": "Farbe für pünktlich (HTML)",
+          "default": "#008000",
+          "sm": 12,
+          "md": 3,
+          "newLine": true
+        },
+        "colorDelay": {
+          "type": "text",
+          "label": "Farbe für Verspätung/Ausfall (HTML)",
+          "default": "#ff0000",
+          "sm": 12,
+          "md": 3
+        },
+        "saveJson": {
+          "type": "checkbox",
+          "label": "JSON-Elemente speichern",
+          "default": true,
+          "sm": 12,
+          "md": 6
+        }
+      }
+    },
+    "_stations": {
+      "type": "panel",
+      "label": "Abfahrtstafeln",
+      "items": {
+        "_hint2": {
+          "type": "staticText",
+          "text": "Die EVA-Nummer der Station ermittelst du wie in der README beschrieben (z.B. per curl-Aufruf gegen /station/{name}).",
+          "sm": 12
+        },
+        "stations": {
+          "type": "table",
+          "label": "Stationen",
+          "newLine": true,
+          "sm": 12,
+          "items": [
+            {
+              "type": "checkbox",
+              "attr": "active",
+              "title": "Aktiv",
+              "default": true,
+              "width": "8%"
+            },
+            {
+              "type": "text",
+              "attr": "name",
+              "title": "Name (frei wählbar)",
+              "width": "24%"
+            },
+            {
+              "type": "text",
+              "attr": "evaNo",
+              "title": "EVA-Nummer",
+              "width": "16%"
+            },
+            {
+              "type": "number",
+              "attr": "count",
+              "title": "Anzahl Abfahrten",
+              "default": 5,
+              "min": 1,
+              "max": 20,
+              "width": "12%"
+            },
+            {
+              "type": "number",
+              "attr": "timeOffsetMinutes",
+              "title": "Zeit-Offset (Min.)",
+              "default": 0,
+              "min": 0,
+              "max": 1440,
+              "width": "12%"
+            },
+            {
+              "type": "text",
+              "attr": "categories",
+              "title": "Kategorie-Filter (z.B. S,RE,RB) leer = alle",
+              "width": "28%"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

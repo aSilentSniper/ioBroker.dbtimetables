@@ -1,0 +1,92 @@
+{
+  "common": {
+    "name": "dbtimetables",
+    "version": "0.1.0",
+    "news": {
+      "0.1.0": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung"
+      }
+    },
+    "title": "DB Timetables",
+    "titleLang": {
+      "en": "DB Timetables",
+      "de": "DB Timetables"
+    },
+    "desc": {
+      "en": "Departure boards for German train/S-Bahn stations based on the official Deutsche Bahn Timetables (IRIS) API",
+      "de": "Abfahrtstafeln für Bahnhöfe/Haltestellen auf Basis der offiziellen Deutsche Bahn Timetables (IRIS) API"
+    },
+    "authors": [
+      "Dein Name <deine.email@example.com>"
+    ],
+    "keywords": ["db", "deutsche bahn", "timetables", "iris", "abfahrtstafel", "bahn"],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "type": "date-and-time",
+    "compact": true,
+    "connectionType": "cloud",
+    "dataSource": "poll",
+    "icon": "dbtimetables.png",
+    "extIcon": "https://raw.githubusercontent.com/DEIN-GITHUB-USER/ioBroker.dbtimetables/master/admin/dbtimetables.png",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=5.0.0"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=6.0.0"
+      }
+    ],
+    "encryptedNative": ["apiKey"],
+    "protectedNative": ["apiKey"]
+  },
+  "native": {
+    "clientId": "",
+    "apiKey": "",
+    "pollInterval": 60,
+    "delayMinutesThreshold": 2,
+    "colorOnTime": "#008000",
+    "colorDelay": "#ff0000",
+    "saveJson": true,
+    "stations": [
+      {
+        "active": true,
+        "name": "Meine Haltestelle",
+        "evaNo": "",
+        "count": 5,
+        "timeOffsetMinutes": 0,
+        "categories": ""
+      }
+    ]
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Letzte Abfrage der DB-API erfolgreich",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
+}
