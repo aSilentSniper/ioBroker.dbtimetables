@@ -53,6 +53,7 @@
     },
     "platform": "Javascript/Node.js",
     "mode": "daemon",
+    "messagebox": true,
     "type": "date-and-time",
     "tier": 3,
     "compact": true,
