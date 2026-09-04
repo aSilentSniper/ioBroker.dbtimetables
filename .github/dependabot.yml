@@ -16,6 +16,22 @@ updates:
       - dependency-name: "@types/node"
         update-types: ["version-update:semver-major"]
 
+  - package-ecosystem: npm
+    directory: "/src-admin"
+    schedule:
+      interval: cron
+      cron: "5 0 15 * *"
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 15
+    cooldown:
+      default: 7
+    assignees:
+      - aSilentSniper
+    versioning-strategy: increase
+    ignore:
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+
   - package-ecosystem: github-actions
     directory: "/"
     schedule:

@@ -35,13 +35,13 @@ class Dbtimetables extends utils.Adapter {
 		}
 
 		this.client = new DbTimetablesClient(this.config.clientId, this.config.apiKey, {
-			debug: (msg) => this.log.debug(msg),
+			debug: msg => this.log.debug(msg),
 		});
 
 		// komplette, konfigurierte Liste (auch deaktivierte Zeilen), Reihenfolge = Index = "Nr" wie im alten Adapter
 		this.entries = this.config.stations || [];
 		this.log.info(
-			`${this.entries.length} Station(en) konfiguriert: ${this.entries.map((e) => `${e.name || '?'} (evaNo=${e.evaNo || '-'}, aktiv=${!!e.active})`).join(', ') || '-'}`,
+			`${this.entries.length} Station(en) konfiguriert: ${this.entries.map(e => `${e.name || '?'} (evaNo=${e.evaNo || '-'}, aktiv=${!!e.active})`).join(', ') || '-'}`,
 		);
 		if (!this.entries.length) {
 			this.log.warn('Keine Station konfiguriert - Adapter tut nichts.');
@@ -56,9 +56,11 @@ class Dbtimetables extends utils.Adapter {
 
 	onUnload(callback) {
 		try {
-			if (this.pollTimer) this.clearInterval(this.pollTimer);
+			if (this.pollTimer) {
+				this.clearInterval(this.pollTimer);
+			}
 			callback();
-		} catch (e) {
+		} catch {
 			callback();
 		}
 	}
@@ -68,31 +70,45 @@ class Dbtimetables extends utils.Adapter {
 	 * sendTo('dbtimetables.0', 'searchStation', { pattern: 'Karlsruhe' }, result => console.log(result));
 	 * Wird außerdem von der jsonConfig-Admin-UI genutzt (Feld "evaNo", Typ "autocompleteSendTo"),
 	 * die als Antwort ein flaches Array von {value, label} erwartet statt eines gewrappten Objekts.
+	 *
+	 * @param obj
 	 */
 	onMessage(obj) {
-		this.log.info(`onMessage: command=${obj && obj.command} from=${obj && obj.from} message=${JSON.stringify(obj && obj.message)}`);
-		if (!obj || !obj.command) return;
+		this.log.info(
+			`onMessage: command=${obj && obj.command} from=${obj && obj.from} message=${JSON.stringify(obj && obj.message)}`,
+		);
+		if (!obj || !obj.command) {
+			return;
+		}
 		if (obj.command === 'searchStation') {
 			(async () => {
 				try {
 					if (!this.client && this.config.clientId && this.config.apiKey) {
 						this.client = new DbTimetablesClient(this.config.clientId, this.config.apiKey, {
-							debug: (msg) => this.log.debug(msg),
+							debug: msg => this.log.debug(msg),
 						});
 					}
-					if (!this.client) throw new Error('Client-Id/API-Key nicht konfiguriert (Instanz einmal mit gespeicherten Zugangsdaten neu starten)');
+					if (!this.client) {
+						throw new Error(
+							'Client-Id/API-Key nicht konfiguriert (Instanz einmal mit gespeicherten Zugangsdaten neu starten)',
+						);
+					}
 					const pattern = (obj.message && obj.message.pattern) || '';
 					this.log.info(`Stationssuche: pattern="${pattern}"`);
 					const stations = pattern.trim() ? await this.client.searchStations(pattern.trim()) : [];
 					this.log.info(`Stationssuche: ${stations.length} Treffer für "${pattern}"`);
-					const options = stations.map((s) => ({
+					const options = stations.map(s => ({
 						value: s.eva,
 						label: s.ds100 ? `${s.name} (${s.eva}, ${s.ds100})` : `${s.name} (${s.eva})`,
 					}));
-					if (obj.callback) this.sendTo(obj.from, obj.command, options, obj.callback);
+					if (obj.callback) {
+						this.sendTo(obj.from, obj.command, options, obj.callback);
+					}
 				} catch (err) {
 					this.log.error(`Stationssuche fehlgeschlagen: ${err.message}`);
-					if (obj.callback) this.sendTo(obj.from, obj.command, [], obj.callback);
+					if (obj.callback) {
+						this.sendTo(obj.from, obj.command, [], obj.callback);
+					}
 				}
 			})();
 		}
@@ -112,11 +128,20 @@ class Dbtimetables extends utils.Adapter {
 			// .Enabled wird immer geschrieben, auch für deaktivierte Zeilen (wie im Original)
 			await this.setObjectNotExistsAsync(`${base}.Enabled`, {
 				type: 'state',
-				common: { name: `Configuration State of Departure Timetable #${index}`, type: 'boolean', role: 'indicator', read: true, write: false, def: false },
+				common: {
+					name: `Configuration State of Departure Timetable #${index}`,
+					type: 'boolean',
+					role: 'indicator',
+					read: true,
+					write: false,
+					def: false,
+				},
 				native: {},
 			});
 
-			if (!entry || !entry.active || !entry.evaNo) continue;
+			if (!entry || !entry.active || !entry.evaNo) {
+				continue;
+			}
 
 			await this.setObjectNotExistsAsync(base, {
 				type: 'channel',
@@ -152,7 +177,14 @@ class Dbtimetables extends utils.Adapter {
 
 			await this.setObjectNotExistsAsync(`${base}.JSON`, {
 				type: 'state',
-				common: { name: 'Departure Timetable JSON', type: 'string', role: 'json', read: true, write: false, def: '' },
+				common: {
+					name: 'Departure Timetable JSON',
+					type: 'string',
+					role: 'json',
+					read: true,
+					write: false,
+					def: '',
+				},
 				native: {},
 			});
 			await this.setObjectNotExistsAsync(`${base}.HTML`, {
@@ -198,12 +230,26 @@ class Dbtimetables extends utils.Adapter {
 		});
 		await this.setObjectNotExistsAsync(`${path}.DepartureOnTime`, {
 			type: 'state',
-			common: { name: 'DepartureOnTime', type: 'boolean', role: 'indicator', read: true, write: false, def: false },
+			common: {
+				name: 'DepartureOnTime',
+				type: 'boolean',
+				role: 'indicator',
+				read: true,
+				write: false,
+				def: false,
+			},
 			native: {},
 		});
 		await this.setObjectNotExistsAsync(`${path}.DepartureDelayed`, {
 			type: 'state',
-			common: { name: 'DepartureDelayed', type: 'boolean', role: 'indicator', read: true, write: false, def: false },
+			common: {
+				name: 'DepartureDelayed',
+				type: 'boolean',
+				role: 'indicator',
+				read: true,
+				write: false,
+				def: false,
+			},
 			native: {},
 		});
 		// zusätzlich zum Original: Ausfall-Flag (IRIS liefert das, HAFAS-Version der Abfahrtstafel hatte es nicht)
@@ -237,14 +283,21 @@ class Dbtimetables extends utils.Adapter {
 		}
 	}
 
-	/** Löscht überzählige Abfahrts-Kanäle, wenn die konfigurierte Anzahl reduziert wurde. */
+	/**
+	 * Löscht überzählige Abfahrts-Kanäle, wenn die konfigurierte Anzahl reduziert wurde.
+	 *
+	 * @param base
+	 * @param count
+	 */
 	async cleanupExtraDepartureObjects(base, count) {
 		let i = count;
 		let checked = 0;
 		while (checked < 50) {
 			const path = `${base}.${i}`;
 			const obj = await this.getObjectAsync(path);
-			if (!obj) break;
+			if (!obj) {
+				break;
+			}
 			await this.delObjectAsync(path, { recursive: true });
 			i++;
 			checked++;
@@ -258,11 +311,15 @@ class Dbtimetables extends utils.Adapter {
 	async pollAll() {
 		for (let index = 0; index < this.entries.length; index++) {
 			const entry = this.entries[index];
-			if (!entry || !entry.active || !entry.evaNo) continue;
+			if (!entry || !entry.active || !entry.evaNo) {
+				continue;
+			}
 			try {
 				await this.pollEntry(entry, index);
 			} catch (err) {
-				this.log.error(`Fehler bei Departure Timetable #${index} (${entry.name || entry.evaNo}): ${err.message}`);
+				this.log.error(
+					`Fehler bei Departure Timetable #${index} (${entry.name || entry.evaNo}): ${err.message}`,
+				);
 				await this.setStateAsync('info.connection', false, true).catch(() => {});
 			}
 		}
@@ -273,7 +330,7 @@ class Dbtimetables extends utils.Adapter {
 		const count = Math.max(1, Number(entry.count) || 3);
 		const categories = (entry.categories || '')
 			.split(',')
-			.map((c) => c.trim())
+			.map(c => c.trim())
 			.filter(Boolean);
 		const delayThresholdSec = Math.max(0, Number(this.config.delayMinutesThreshold) || 2) * 60;
 		const offsetMinutes = Math.max(0, Number(entry.timeOffsetMinutes) || 0);
@@ -293,7 +350,11 @@ class Dbtimetables extends utils.Adapter {
 		await this.setStateAsync(`${base}.Station.CustomName`, entry.name || entry.evaNo, true);
 		await this.setStateAsync(`${base}.Station.Type`, 'station', true);
 		if (this.config.saveJson !== false) {
-			await this.setStateAsync(`${base}.Station.JSON`, JSON.stringify({ eva: entry.evaNo, name: entry.name }), true);
+			await this.setStateAsync(
+				`${base}.Station.JSON`,
+				JSON.stringify({ eva: entry.evaNo, name: entry.name }),
+				true,
+			);
 		}
 
 		if (this.config.saveJson !== false) {
@@ -319,8 +380,11 @@ class Dbtimetables extends utils.Adapter {
 		let onTime = false;
 		let delayed = false;
 		if (dep.delayMinutes >= 0) {
-			if (delaySeconds === 0) onTime = true;
-			else if (delaySeconds >= delayThresholdSec) delayed = true;
+			if (delaySeconds === 0) {
+				onTime = true;
+			} else if (delaySeconds >= delayThresholdSec) {
+				delayed = true;
+			}
 		}
 
 		if (this.config.saveJson !== false) {
@@ -361,16 +425,26 @@ class Dbtimetables extends utils.Adapter {
 		await this.setStateAsync(`${path}.PlannedPlatform`, '', true);
 	}
 
-	/** Grobe Näherung an HAFAS' abstraktes "mode"-Feld, das IRIS nicht kennt. */
+	/**
+	 * Grobe Näherung an HAFAS' abstraktes "mode"-Feld, das IRIS nicht kennt.
+	 *
+	 * @param category
+	 */
 	guessMode(category) {
 		const c = (category || '').toUpperCase();
-		if (c === 'BUS') return 'bus';
-		if (c === 'STR' || c === 'TRAM') return 'tram';
+		if (c === 'BUS') {
+			return 'bus';
+		}
+		if (c === 'STR' || c === 'TRAM') {
+			return 'tram';
+		}
 		return 'train';
 	}
 
 	fmtTime(date) {
-		if (!date) return '';
+		if (!date) {
+			return '';
+		}
 		return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
 	}
 
@@ -386,17 +460,29 @@ class Dbtimetables extends utils.Adapter {
 			const delayed = dep.delayMinutes >= 0 && delaySeconds >= delayThresholdSec;
 			const timeStr = this.fmtTime(dep.actualTime);
 			let row = '<tr>';
-			if (onTime) row += `<td><font color="${colorOnTime}">${timeStr}</font></td>`;
-			else if (delayed || dep.cancelled) row += `<td><font color="${colorDelay}">${timeStr}</font></td>`;
-			else row += `<td>${timeStr}</td>`;
+			if (onTime) {
+				row += `<td><font color="${colorOnTime}">${timeStr}</font></td>`;
+			} else if (delayed || dep.cancelled) {
+				row += `<td><font color="${colorDelay}">${timeStr}</font></td>`;
+			} else {
+				row += `<td>${timeStr}</td>`;
+			}
 			row += `<td>${this.esc(dep.destination)}${dep.cancelled ? ` (${lang === 'de' ? 'Ausfall' : 'cancelled'})` : ''}</td>`;
-			if (!dep.platform) row += '<td>-</td>';
-			else if (dep.platform === dep.plannedPlatform) row += `<td><font color="${colorOnTime}">${this.esc(dep.platform)}</font></td>`;
-			else row += `<td><font color="${colorDelay}">${this.esc(dep.platform)}</font></td>`;
+			if (!dep.platform) {
+				row += '<td>-</td>';
+			} else if (dep.platform === dep.plannedPlatform) {
+				row += `<td><font color="${colorOnTime}">${this.esc(dep.platform)}</font></td>`;
+			} else {
+				row += `<td><font color="${colorDelay}">${this.esc(dep.platform)}</font></td>`;
+			}
 			const delayMin = Math.max(0, dep.delayMinutes || 0);
-			if (onTime) row += `<td><font color="${colorOnTime}">${delayMin}</font></td>`;
-			else if (delayed) row += `<td><font color="${colorDelay}">${delayMin}</font></td>`;
-			else row += `<td>${delayMin}</td>`;
+			if (onTime) {
+				row += `<td><font color="${colorOnTime}">${delayMin}</font></td>`;
+			} else if (delayed) {
+				row += `<td><font color="${colorDelay}">${delayMin}</font></td>`;
+			} else {
+				row += `<td>${delayMin}</td>`;
+			}
 			row += `<td>${this.esc(dep.category)}</td>`;
 			row += '</tr>';
 			html += row;
@@ -407,12 +493,12 @@ class Dbtimetables extends utils.Adapter {
 
 	esc(str) {
 		const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-		return String(str == null ? '' : str).replace(/[&<>"']/g, (c) => map[c]);
+		return String(str == null ? '' : str).replace(/[&<>"']/g, c => map[c]);
 	}
 }
 
 if (require.main !== module) {
-	module.exports = (options) => new Dbtimetables(options);
+	module.exports = options => new Dbtimetables(options);
 } else {
 	new Dbtimetables();
 }

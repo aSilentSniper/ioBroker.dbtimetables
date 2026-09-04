@@ -9,39 +9,39 @@ import { federation } from '@module-federation/vite';
 // while bundling its fallback ("prebuild") chunk - reproduced on both Vite 7 and Vite 8, with and
 // without dts generation. Only declaring the packages we actually import avoids that entirely.
 const config = {
-    plugins: [
-        federation({
-            manifest: true,
-            dts: false,
-            name: 'DbtimetablesAdminSet',
-            filename: 'customComponents.js',
-            exposes: {
-                './Components': './src/Components.tsx',
-            },
-            remotes: {},
-            shared: {
-                react: { requiredVersion: '*', singleton: true },
-                'react-dom': { requiredVersion: '*', singleton: true },
-                '@mui/material': { requiredVersion: '*', singleton: true },
-                '@mui/icons-material': { requiredVersion: '*', singleton: true },
-                '@iobroker/json-config': { requiredVersion: '*', singleton: true },
-            },
-        }),
-        react(),
-        commonjs(),
-    ],
-    resolve: {
-        tsconfigPaths: true,
-    },
-    server: {
-        port: 3000,
-    },
-    base: './',
-    build: {
-        target: 'chrome89',
-        outDir: './build',
-        chunkSizeWarningLimit: 3000,
-    },
+	plugins: [
+		federation({
+			manifest: true,
+			dts: false,
+			name: 'DbtimetablesAdminSet',
+			filename: 'customComponents.js',
+			exposes: {
+				'./Components': './src/Components.tsx',
+			},
+			remotes: {},
+			shared: {
+				react: { requiredVersion: '*', singleton: true },
+				'react-dom': { requiredVersion: '*', singleton: true },
+				'@mui/material': { requiredVersion: '*', singleton: true },
+				'@mui/icons-material': { requiredVersion: '*', singleton: true },
+				'@iobroker/json-config': { requiredVersion: '*', singleton: true },
+			},
+		}),
+		react(),
+		commonjs(),
+	],
+	resolve: {
+		tsconfigPaths: true,
+	},
+	server: {
+		port: 3000,
+	},
+	base: './',
+	build: {
+		target: 'chrome89',
+		outDir: './build',
+		chunkSizeWarningLimit: 3000,
+	},
 };
 
 export default config;
