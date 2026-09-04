@@ -71,7 +71,7 @@ class Dbtimetables extends utils.Adapter {
 	 * Wird außerdem von der jsonConfig-Admin-UI genutzt (Feld "evaNo", Typ "autocompleteSendTo"),
 	 * die als Antwort ein flaches Array von {value, label} erwartet statt eines gewrappten Objekts.
 	 *
-	 * @param obj
+	 * @param obj die von ioBroker übergebene Message
 	 */
 	onMessage(obj) {
 		this.log.info(
@@ -286,8 +286,8 @@ class Dbtimetables extends utils.Adapter {
 	/**
 	 * Löscht überzählige Abfahrts-Kanäle, wenn die konfigurierte Anzahl reduziert wurde.
 	 *
-	 * @param base
-	 * @param count
+	 * @param base Objekt-Pfad-Präfix der Departure Timetable (z.B. "DepartureTimetable0")
+	 * @param count Anzahl der aktuell konfigurierten Abfahrts-Kanäle
 	 */
 	async cleanupExtraDepartureObjects(base, count) {
 		let i = count;
@@ -428,7 +428,7 @@ class Dbtimetables extends utils.Adapter {
 	/**
 	 * Grobe Näherung an HAFAS' abstraktes "mode"-Feld, das IRIS nicht kennt.
 	 *
-	 * @param category
+	 * @param category IRIS-Zuggattung (z.B. "ICE", "S", "BUS")
 	 */
 	guessMode(category) {
 		const c = (category || '').toUpperCase();

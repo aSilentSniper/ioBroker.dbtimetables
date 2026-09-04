@@ -45,6 +45,7 @@ function emptyStation(): StationRow {
 
 /** Admin-Custom-Component zur Stationssuche und Pflege der konfigurierten Abfahrtstafeln. */
 export default class StationManager extends ConfigGeneric<ConfigGenericProps, StationManagerState> {
+	/** @param props von ioBroker Admin übergebene Custom-Component-Props */
 	constructor(props: ConfigGenericProps) {
 		super(props);
 		this.state = {
@@ -125,6 +126,7 @@ export default class StationManager extends ConfigGeneric<ConfigGenericProps, St
 		}
 	};
 
+	/** Rendert die Stationssuche und die Tabelle der konfigurierten Stationen. */
 	renderItem(): React.JSX.Element {
 		const stations = this.getStations();
 
