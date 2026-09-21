@@ -31,6 +31,12 @@ unter `src-admin/`): Stationsnamen eintippen, "Suchen" klicken, Treffer per Klic
 hinzufügen - fertig. Die komplette Stationsverwaltung (hinzufügen, bearbeiten, löschen, aktivieren) läuft in
 diesem einen Widget statt in einer klassischen jsonConfig-Tabelle.
 
+Die Suche findet den **Anfang** des Stationsnamens (ohne Beachtung der Groß-/Kleinschreibung), die EVA-Nummer
+oder das DS100-Kürzel. Platzhalter gibt es nicht, und die DB-API lieferte in meinen Tests pro Anfrage nur eine Station.
+Am besten den Namen so vollständig eintippen, wie du ihn kennst: "Hannover Hbf" findet den Hauptbahnhof,
+"Hannover" nur die erste Station mit diesem Anfang, und "Pferdemarkt" findet nichts, weil die Station
+"Langenhagen Pferdemarkt" heißt.
+
 Voraussetzung: Die Adapterinstanz läuft bereits mit gültigem Client-Id/Api-Key (die Suche fragt die
 laufende Instanz per `sendTo` ab) **und Admin ist Version 8 oder neuer** - das Widget nutzt die neue,
 React-basierte Custom-Component-API von Admin 8 (Module Federation, `guiApi: 2`). Ist die Instanz nicht
@@ -41,15 +47,14 @@ EVA-Nummer kann dann trotzdem manuell in der Stationsliste eingetragen werden.
 
 ```bash
 curl -H "DB-Client-Id: DEINE_CLIENT_ID" -H "DB-Api-Key: DEIN_API_KEY" \
-  "https://apis.deutschebahn.com/db-api-marketplace/apis/timetables/v1/station/Karlsruhe"
+  "https://apis.deutschebahn.com/db-api-marketplace/apis/timetables/v1/station/Karlsruhe%20Hbf"
 ```
 
 Antwort z.B.:
 
 ```xml
 <stations>
-  <station name="Karlsruhe Hbf" eva="8000191" ds100="RK"/>
-  <station name="Karlsruhe West" eva="8007433" ds100="RKW"/>
+  <station name="Karlsruhe Hbf" eva="8000191" ds100="RK" db="true"/>
 </stations>
 ```
 
@@ -58,8 +63,8 @@ Die `eva`-Nummer (hier `8000191`) trägst du in die Stationentabelle ein.
 **Alternativ per ioBroker-Skript / sendTo**, sobald der Adapter läuft und Zugangsdaten hinterlegt sind:
 
 ```js
-sendTo('dbtimetables.0', 'searchStation', { pattern: 'Karlsruhe' }, (res) => {
-    // res ist ein Array von { value: eva, label: "Name (eva, ds100)" }
+sendTo('dbtimetables.0', 'searchStation', { pattern: 'Karlsruhe Hbf' }, (res) => {
+    // Erfolg: [{ value: eva, label: "Name (eva, ds100)" }], nichts gefunden: [], Fehler: { error: "..." }
     console.log(JSON.stringify(res));
 });
 ```

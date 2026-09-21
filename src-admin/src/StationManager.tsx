@@ -129,7 +129,7 @@ export default class StationManager extends ConfigGeneric<ConfigGenericProps, St
 			this.setState({
 				searchResults: stations,
 				searching: false,
-				searchError: stations.length ? '' : 'Keine Treffer gefunden.',
+				searchError: stations.length ? '' : 'Keine Treffer gefunden. Bitte den Namen vollständiger eintippen.',
 			});
 		} catch (err) {
 			this.setState({
@@ -174,6 +174,15 @@ export default class StationManager extends ConfigGeneric<ConfigGenericProps, St
 					</Button>
 					{this.state.searching ? <CircularProgress size={20} /> : null}
 				</Box>
+				<Typography
+					variant="caption"
+					color="text.secondary"
+					sx={{ display: 'block', mb: 1 }}
+				>
+					Gesucht wird nach dem Anfang des Stationsnamens (z.B. „Hannover Hbf“ oder „Langenhagen
+					Pferdemarkt“), der EVA-Nummer oder dem DS100-Kürzel. Platzhalter gibt es nicht, und die DB-API
+					liefert pro Suche nur eine Station. Bei „Keine Treffer“ den Namen vollständiger eintippen.
+				</Typography>
 				{this.state.searchError ? (
 					<Alert
 						severity="warning"

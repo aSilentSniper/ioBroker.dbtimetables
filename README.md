@@ -12,27 +12,28 @@ Register at [developers.deutschebahn.com](https://developers.deutschebahn.com/db
 
 ## Finding a station
 
-Stations are only addressed by a 7-digit EVA number, not by name. The "Departure boards" tab has a search box for exactly this: type a station name, hit "Suchen", and add whichever match you want straight to the station list below it with one click - no manual EVA lookup needed. That box is a small custom Admin UI component (requires **Admin 8 or newer**), built in `src-admin/` and shipped as `admin/custom/customComponents.js`; see [Developer tests](#developer-tests) for how to rebuild it.
+Stations are only addressed by a 7-digit EVA number, not by name. The "Departure boards" tab has a search box for exactly this: type a station name, hit "Suchen", and add the match straight to the station list below it with one click - no manual EVA lookup needed. That box is a small custom Admin UI component (requires **Admin 8 or newer**), built in `src-admin/` and shipped as `admin/custom/customComponents.js`; see [Developer tests](#developer-tests) for how to rebuild it.
+
+The search matches the **beginning** of the station name (case-insensitive), the EVA number or the DS100 code. There are no wildcards, and in my tests the DB API returned only a single station per query, so type the name as completely as you know it: "Hannover Hbf" finds the main station, plain "Hannover" only the first station starting with that word, and "Pferdemarkt" finds nothing because the station is called "Langenhagen Pferdemarkt".
 
 That search asks the running adapter instance for results, so it only works once the instance is actually up with saved credentials. If it isn't (or comes back empty), you can still add a station manually and type in the EVA number by hand, or look one up directly:
 
 ```bash
 curl -H "DB-Client-Id: YOUR_CLIENT_ID" -H "DB-Api-Key: YOUR_API_KEY" \
-  "https://apis.deutschebahn.com/db-api-marketplace/apis/timetables/v1/station/Karlsruhe"
+  "https://apis.deutschebahn.com/db-api-marketplace/apis/timetables/v1/station/Karlsruhe%20Hbf"
 ```
 
 ```xml
 <stations>
-  <station name="Karlsruhe Hbf" eva="8000191" ds100="RK"/>
-  <station name="Karlsruhe West" eva="8007433" ds100="RKW"/>
+  <station name="Karlsruhe Hbf" eva="8000191" ds100="RK" db="true"/>
 </stations>
 ```
 
 or from an ioBroker script, once the adapter is running:
 
 ```js
-sendTo('dbtimetables.0', 'searchStation', { pattern: 'Karlsruhe' }, (res) => {
-    // res: [{ value: eva, label: "Name (eva, ds100)" }, ...]
+sendTo('dbtimetables.0', 'searchStation', { pattern: 'Karlsruhe Hbf' }, (res) => {
+    // success: [{ value: eva, label: "Name (eva, ds100)" }], nothing found: [], failure: { error: "..." }
     console.log(JSON.stringify(res));
 });
 ```
@@ -123,6 +124,7 @@ This installs `src-admin`'s own dependencies, builds it with Vite, and copies th
 
 ### **WORK IN PROGRESS**
 
+- station search: a query without a match no longer shows an empty entry, and the admin UI explains how the search matches
 - API requests time out after 15 s, and a poll run is skipped while the previous one is still running
 - state roles corrected: timestamps use `value.time` (numeric), text values use `text`
 - departure object names are only written when the line changes, not on every poll
