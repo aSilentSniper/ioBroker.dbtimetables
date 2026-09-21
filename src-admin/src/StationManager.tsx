@@ -32,6 +32,10 @@ interface SearchResult {
 	label: string;
 }
 
+interface SearchError {
+	error?: string;
+}
+
 interface StationManagerState extends ConfigGenericState {
 	searchQuery: string;
 	searching: boolean;
@@ -104,14 +108,24 @@ export default class StationManager extends ConfigGeneric<ConfigGenericProps, St
 		}
 		this.setState({ searching: true, searchError: '' });
 		try {
-			const result = await this.props.oContext.socket.sendTo<SearchResult[]>(
+			const result = await this.props.oContext.socket.sendTo<SearchResult[] | SearchError | undefined>(
 				this.getInstanceId(),
 				'searchStation',
 				{
 					pattern,
 				},
 			);
-			const stations = Array.isArray(result) ? result : [];
+			if (!Array.isArray(result)) {
+				this.setState({
+					searching: false,
+					searchResults: [],
+					searchError: result?.error
+						? `Suche fehlgeschlagen: ${result.error}`
+						: 'Keine Antwort von der Instanz erhalten.',
+				});
+				return;
+			}
+			const stations = result;
 			this.setState({
 				searchResults: stations,
 				searching: false,

@@ -68,13 +68,15 @@ class Dbtimetables extends utils.Adapter {
 	/**
 	 * Erlaubt eine Stationssuche per sendTo, z.B. aus einem Skript:
 	 * sendTo('dbtimetables.0', 'searchStation', { pattern: 'Karlsruhe' }, result => console.log(result));
-	 * Wird außerdem von der jsonConfig-Admin-UI genutzt (Feld "evaNo", Typ "autocompleteSendTo"),
-	 * die als Antwort ein flaches Array von {value, label} erwartet statt eines gewrappten Objekts.
+	 * Wird auch von der Admin-Komponente auf dem Tab "Abfahrtstafeln" genutzt.
+	 * Antwort bei Erfolg: Array von {value: EVA-Nummer, label: "Name (EVA, DS100)"}.
+	 * Antwort bei Fehler: {error: "Fehlertext"}, damit die UI den Grund anzeigen kann.
+	 * Voraussetzung, dass Messages überhaupt ankommen: common.messagebox=true in io-package.json.
 	 *
 	 * @param obj die von ioBroker übergebene Message
 	 */
 	onMessage(obj) {
-		this.log.info(
+		this.log.debug(
 			`onMessage: command=${obj && obj.command} from=${obj && obj.from} message=${JSON.stringify(obj && obj.message)}`,
 		);
 		if (!obj || !obj.command) {
@@ -107,7 +109,7 @@ class Dbtimetables extends utils.Adapter {
 				} catch (err) {
 					this.log.error(`Stationssuche fehlgeschlagen: ${err.message}`);
 					if (obj.callback) {
-						this.sendTo(obj.from, obj.command, [], obj.callback);
+						this.sendTo(obj.from, obj.command, { error: err.message }, obj.callback);
 					}
 				}
 			})();
