@@ -121,8 +121,7 @@ npm run build-admin-ui
 This installs `src-admin`'s own dependencies, builds it with Vite, and copies the result into `admin/custom/`, which is what actually ships with the adapter (`admin/jsonConfig.json` references it via `type: "custom"`).
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 0.1.1 (2026-09-21)
 
 - station search: a query without a match no longer shows an empty entry, and the admin UI explains how the search matches
 - API requests time out after 15 s, and a poll run is skipped while the previous one is still running

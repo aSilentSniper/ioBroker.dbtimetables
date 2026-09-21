@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "dbtimetables",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "news": {
+      "0.1.1": {
+        "en": "station search: a query without a match no longer shows an empty entry, and the admin UI explains how the search matches\nAPI requests time out after 15 s, and a poll run is skipped while the previous one is still running\nstate roles corrected: timestamps use `value.time` (numeric), text values use `text`\ndeparture object names are only written when the line changes, not on every poll",
+        "de": "Sendersuche: Eine Suche ohne Treffer zeigt kein Leerwort mehr, und die Admin-UI erklärt, wie die Suche passt\nAPI-Anfragen laufen nach 15 s ab und eine Umfrage wird übersprungen, solange sie noch läuft\nZustandsrollen korrigiert: Zeitstempel nutzen `value.time` (numerisch), Textwerte\nAbflugobjekte stehen nur bei Zeilenwechsel, nicht bei jeder Umfrage",
+        "ru": "поиск станций: запрос без совпадения больше не показывает пустую запись, а пользовательский интерфейс администратора объясняет, как результаты поиска совпадают\nВремя ожидания запросов API истекает через 15 секунд, и запуск опроса пропускается, пока предыдущий еще запущен\nисправлены роли состояний: во временных метках используется значение `value.time` (числовое значение), в текстовых значениях используется `text`\nимена объектов отправления записываются только при изменении строки, а не в каждом опросе",
+        "pt": "station search: uma consulta sem correspondência não mostra mais uma entrada vazia e a IU admin explica como ela coincide\nAs solicitações de API expiram após 15 s e uma enquete é ignorada enquanto a anterior\nfunções de estado corrigidas: timestamps usam `value.time` (numérico) e `text`\no nome do objeto de partida só é escrito quando a linha muda, não em cada enquete",
+        "nl": "zender zoeken: bij een zoekopdracht zonder overeenkomst wordt niet langer een leeg item weergegeven, en in de gebruikersinterface van de beheerder wordt uitgelegd hoe de zoekopdracht overeenkomt\nAPI-aanvragen verlopen na 15 seconden, en een peiling wordt overgeslagen terwijl de vorige nog loopt\nstatusrollen gecorrigeerd: tijdstempels gebruiken `value.time` (numeriek), tekstwaarden gebruiken `tekst`\nDe namen van vertrekobjecten worden alleen geschreven als de regel verandert, niet bij elke peiling",
+        "fr": "recherche de stations : une requête sans résultat n'affiche plus d'entrée vide, et l'interface d'administration explique\nLes requêtes d'API expirent au bout de 15 s, et un sondage est ignoré alors que le précédent est en cours\nrôles d'état corrigés : les horodatages utilisent « value.time » (numérique), les valeurs de texte « text »\nles noms des objets de départ ne sont écrits qu'au changement de ligne, pas sur tous les sondages",
+        "it": "stazione di ricerca: una query senza risultato non mostra più una voce vuota e l'admin UI spiega come funziona\nLe richieste API scadono dopo 15 s e un sondaggio viene saltato mentre il precedente è ancora in corso\nruoli di stato corretti: timestamp usa «value.time» (numerico), testo usa «text»\ni nomi degli oggetti di partenza sono scritti solo quando cambia riga",
+        "es": "búsqueda de estaciones: una consulta sin resultados ya no muestra una entrada vacía y la interfaz de administración explica cómo coincide\nLa API solicita un tiempo de espera a los 15 s y se salta una encuesta mientras la anterior sigue en marcha\nroles estatales corregidos: las marcas de tiempo usan «value.time» (numérico), los valores de texto usan «texto»\nlos nombres de los objetos de salida solo se escriben cuando la línea cambia, no en cada encuesta",
+        "pl": "wyszukiwanie stacji: zapytanie bez dopasowania nie wyświetla już pustego wpisu, a interfejs administratora wyjaśnia, w jaki sposób wyszukiwanie pasuje\nInterfejs API kończy czas po 15 s, a uruchomienie ankiety jest pomijane, gdy poprzednia jest nadal uruchomiona\npoprawione role stanu: znaczniki czasowe używają `value.time` (numeryczny), wartości tekstowe używają `text`\nnazwy obiektów wyjścia są zapisywane tylko po zmianie linii, nie w każdej ankiecie",
+        "uk": "пошук станції: запит без відповідності більше не показує порожній запис, а інтерфейс адміністратора пояснює, як збігається пошук\nЧас очікування API запитів через 15 с, а запуск опитування пропущений, поки попереднє все ще працює\nролі стану виправлено: часові мітки використовують `value.time` (числове), текстові значення використовують `text`\nімена об'єктів вильоту записуються лише при зміні рядка, а не на кожному опитуванні",
+        "zh-cn": "站内搜索：没有匹配项的查询不再显示空条目，管理员界面会解释搜索的匹配方式\nAPI 请求在 15 秒后超时，并且在前一个轮询仍在运行时跳过轮询运行\n状态角色已更正：时间戳使用 value.time（数字），文本值使用 “文本”\n出发对象名称仅在线路变更时书写，而不是在每次民意调查中写入"
+      },
       "0.1.0": {
         "en": "initial release",
         "de": "Erstveröffentlichung",
@@ -46,7 +59,14 @@
     "authors": [
       "Christian Lerch <christian.lerch@softwareschmiede-lerch.de>"
     ],
-    "keywords": ["db", "deutsche bahn", "timetables", "iris", "abfahrtstafel", "bahn"],
+    "keywords": [
+      "db",
+      "deutsche bahn",
+      "timetables",
+      "iris",
+      "abfahrtstafel",
+      "bahn"
+    ],
     "licenseInformation": {
       "type": "free",
       "license": "MIT"
@@ -75,8 +95,12 @@
       }
     ]
   },
-  "encryptedNative": ["apiKey"],
-  "protectedNative": ["apiKey"],
+  "encryptedNative": [
+    "apiKey"
+  ],
+  "protectedNative": [
+    "apiKey"
+  ],
   "native": {
     "clientId": "",
     "apiKey": "",
