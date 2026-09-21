@@ -18,6 +18,8 @@ class Dbtimetables extends utils.Adapter {
 		this.pollTimer = null;
 		this.client = null;
 		this.entries = [];
+		this.polling = false;
+		this.departureNames = new Map();
 	}
 
 	async onReady() {
@@ -167,7 +169,7 @@ class Dbtimetables extends utils.Adapter {
 			for (const [key, name] of Object.entries(stationFields)) {
 				await this.setObjectNotExistsAsync(`${base}.Station.${key}`, {
 					type: 'state',
-					common: { name, type: 'string', role: 'state', read: true, write: false, def: '' },
+					common: { name, type: 'string', role: 'text', read: true, write: false, def: '' },
 					native: {},
 				});
 			}
@@ -217,12 +219,12 @@ class Dbtimetables extends utils.Adapter {
 		});
 		await this.setObjectNotExistsAsync(`${path}.Departure`, {
 			type: 'state',
-			common: { name: 'Departure', type: 'number', role: 'date', read: true, write: false, def: 0 },
+			common: { name: 'Departure', type: 'number', role: 'value.time', read: true, write: false, def: 0 },
 			native: {},
 		});
 		await this.setObjectNotExistsAsync(`${path}.DeparturePlanned`, {
 			type: 'state',
-			common: { name: 'DeparturePlanned', type: 'number', role: 'date', read: true, write: false, def: 0 },
+			common: { name: 'DeparturePlanned', type: 'number', role: 'value.time', read: true, write: false, def: 0 },
 			native: {},
 		});
 		await this.setObjectNotExistsAsync(`${path}.DepartureDelaySeconds`, {
@@ -279,7 +281,7 @@ class Dbtimetables extends utils.Adapter {
 		for (const [key, name] of Object.entries(lineFields)) {
 			await this.setObjectNotExistsAsync(`${path}.${key}`, {
 				type: 'state',
-				common: { name, type: 'string', role: 'state', read: true, write: false, def: '' },
+				common: { name, type: 'string', role: 'text', read: true, write: false, def: '' },
 				native: {},
 			});
 		}
@@ -311,19 +313,29 @@ class Dbtimetables extends utils.Adapter {
 	// ---------------------------------------------------------------------
 
 	async pollAll() {
-		for (let index = 0; index < this.entries.length; index++) {
-			const entry = this.entries[index];
-			if (!entry || !entry.active || !entry.evaNo) {
-				continue;
+		// Läuft der vorige Durchlauf noch (z.B. langsame API), keinen zweiten parallel starten
+		if (this.polling) {
+			this.log.debug('Vorheriger Abruf läuft noch - dieser Durchlauf wird übersprungen');
+			return;
+		}
+		this.polling = true;
+		try {
+			for (let index = 0; index < this.entries.length; index++) {
+				const entry = this.entries[index];
+				if (!entry || !entry.active || !entry.evaNo) {
+					continue;
+				}
+				try {
+					await this.pollEntry(entry, index);
+				} catch (err) {
+					this.log.error(
+						`Fehler bei Departure Timetable #${index} (${entry.name || entry.evaNo}): ${err.message}`,
+					);
+					await this.setStateAsync('info.connection', false, true).catch(() => {});
+				}
 			}
-			try {
-				await this.pollEntry(entry, index);
-			} catch (err) {
-				this.log.error(
-					`Fehler bei Departure Timetable #${index} (${entry.name || entry.evaNo}): ${err.message}`,
-				);
-				await this.setStateAsync('info.connection', false, true).catch(() => {});
-			}
+		} finally {
+			this.polling = false;
 		}
 	}
 
@@ -407,7 +419,13 @@ class Dbtimetables extends utils.Adapter {
 		await this.setStateAsync(`${path}.Platform`, dep.platform, true);
 		await this.setStateAsync(`${path}.PlannedPlatform`, dep.plannedPlatform, true);
 
-		await this.extendObjectAsync(path, { common: { name: dep.line || `Departure` } }).catch(() => {});
+		// Objektname nur bei Änderung schreiben, nicht bei jedem Abruf
+		const name = dep.line || 'Departure';
+		if (this.departureNames.get(path) !== name) {
+			await this.extendObjectAsync(path, { common: { name } })
+				.then(() => this.departureNames.set(path, name))
+				.catch(() => {});
+		}
 	}
 
 	async clearDeparture(path) {

@@ -121,6 +121,12 @@ This installs `src-admin`'s own dependencies, builds it with Vite, and copies th
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- API requests time out after 15 s, and a poll run is skipped while the previous one is still running
+- state roles corrected: timestamps use `value.time` (numeric), text values use `text`
+- departure object names are only written when the line changes, not on every poll
+
 ### 0.1.0 (2026-09-03)
 
 - initial release: departure board per station, plan+changes merge, HTML/JSON output, admin UI station search
