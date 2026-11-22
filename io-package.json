@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "dbtimetables",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "news": {
+      "0.2.1": {
+        "en": "ioBroker now shows a notice before updating from 0.1.x, explaining the switch to OpenBoards and the subscriptions it needs",
+        "de": "ioBroker zeigt jetzt vor dem Update von 0.1.x einen Hinweis zum Wechsel auf OpenBoards und den dafür nötigen Abos",
+        "ru": "Перед обновлением с версии 0.1.x ioBroker теперь показывает уведомление о переходе на OpenBoards и необходимых подписках",
+        "pt": "O ioBroker mostra agora um aviso antes de atualizar a partir da 0.1.x, explicando a mudança para OpenBoards e as subscrições necessárias",
+        "nl": "ioBroker toont nu vóór een update vanaf 0.1.x een melding over de overstap naar OpenBoards en de benodigde abonnementen",
+        "fr": "ioBroker affiche désormais un avis avant la mise à jour depuis la 0.1.x, expliquant le passage à OpenBoards et les abonnements nécessaires",
+        "it": "ioBroker ora mostra un avviso prima dell'aggiornamento dalla 0.1.x, che spiega il passaggio a OpenBoards e gli abbonamenti necessari",
+        "es": "ioBroker muestra ahora un aviso antes de actualizar desde la 0.1.x, explicando el cambio a OpenBoards y las suscripciones necesarias",
+        "pl": "ioBroker pokazuje teraz przed aktualizacją z 0.1.x komunikat o przejściu na OpenBoards i potrzebnych subskrypcjach",
+        "uk": "Перед оновленням з версії 0.1.x ioBroker тепер показує повідомлення про перехід на OpenBoards і потрібні підписки",
+        "zh-cn": "从 0.1.x 更新前，ioBroker 现在会显示提示，说明切换到 OpenBoards 以及所需的订阅"
+      },
       "0.2.0": {
         "en": "(BREAKING) new data source OpenBoards + OpenStation, the successor of the Timetables API (expected shutdown mid 2027). It is the new default; Timetables can still be selected in the instance settings\ndepartures come from a single API call per station and include the operator name\ncoupled trains (e.g. ICE 1069 + ICE 2831) are shown as one departure, like on the platform displays\nstation search finds any part of the name (\"Pferdemarkt\" finds \"Langenhagen Pferdemarkt\") and lists all matches, main station first",
         "de": "(BREAKING) Neue Datenquelle OpenBoards + OpenStation, der Nachfolger der Timetables-API (Abschaltung vrsl. Mitte 2027). Sie ist jetzt Standard, Timetables lässt sich in den Instanzeinstellungen weiter auswählen\nAbfahrten kommen mit einem API-Aufruf pro Station und enthalten den Betreibernamen\nGekoppelte Züge (z.B. ICE 1069 + ICE 2831) erscheinen als eine Abfahrt, wie auf der Anzeige am Bahnsteig\nDie Stationssuche findet jeden Teil des Namens (\"Pferdemarkt\" findet \"Langenhagen Pferdemarkt\") und listet alle Treffer, den Hauptbahnhof zuerst",

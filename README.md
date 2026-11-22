@@ -123,7 +123,7 @@ npm run build-admin-ui
 This installs `src-admin`'s own dependencies, builds it with Vite, and copies the result into `admin/custom/`, which is what actually ships with the adapter (`admin/jsonConfig.json` references it via `type: "custom"`).
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.2.1 (2026-11-22)
 
 - ioBroker now shows a notice before updating from 0.1.x, explaining the switch to OpenBoards and the subscriptions it needs
 
