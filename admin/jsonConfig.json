@@ -8,7 +8,7 @@
       "items": {
         "_hint": {
           "type": "staticText",
-          "text": "Client-ID und API-Key erhältst du kostenlos unter developers.deutschebahn.com (Anwendung anlegen -> Timetables-API mit Free-Plan abonnieren).",
+          "text": "Client-ID und API-Key erhältst du kostenlos unter developers.deutschebahn.com: Anwendung anlegen und darin OpenBoards und OpenStation mit dem Free-Plan abonnieren.",
           "newLine": true,
           "xs": 12,
           "sm": 12,
@@ -36,6 +36,28 @@
           "xl": 6,
           "visible": true
         },
+        "api": {
+          "type": "select",
+          "label": "Datenquelle",
+          "options": [
+            {
+              "label": "OpenBoards + OpenStation (empfohlen)",
+              "value": "openboards"
+            },
+            {
+              "label": "Timetables (alt, Abschaltung vrsl. Mitte 2027)",
+              "value": "timetables"
+            }
+          ],
+          "default": "openboards",
+          "help": "Die DB ersetzt die Timetables-API durch OpenBoards und nimmt dafür keine neuen Abos mehr an. Timetables nur wählen, solange deine Anwendung OpenBoards noch nicht abonniert hat.",
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12,
+          "newLine": true
+        },
         "pollInterval": {
           "type": "number",
           "label": "Aktualisierungsintervall (Sekunden)",
@@ -48,7 +70,7 @@
           "lg": 6,
           "xl": 6,
           "newLine": true,
-          "help": "Free-Plan erlaubt 60 Aufrufe/Minute. Pro Station werden ca. 2-3 Aufrufe pro Intervall verbraucht."
+          "help": "Pro Station wird meist 1 Aufruf je Intervall verbraucht (Timetables: 2-3 Aufrufe, Free-Plan max. 60/Minute)."
         },
         "delayMinutesThreshold": {
           "type": "number",

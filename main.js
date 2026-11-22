@@ -2,6 +2,7 @@
 
 const utils = require('@iobroker/adapter-core');
 const { DbTimetablesClient } = require('./lib/dbTimetablesClient');
+const { OpenBoardsClient } = require('./lib/openBoardsClient');
 
 // Spalten-Überschriften der HTML-Tabelle, wie im alten ioBroker.fahrplan (lib/deptt.js)
 const HTML_HEADER = {
@@ -36,9 +37,10 @@ class Dbtimetables extends utils.Adapter {
 			return;
 		}
 
-		this.client = new DbTimetablesClient(this.config.clientId, this.config.apiKey, {
-			debug: msg => this.log.debug(msg),
-		});
+		this.client = this.createClient();
+		this.log.info(
+			`Datenquelle: ${this.useOpenBoards() ? 'OpenBoards/OpenStation' : 'Timetables (wird von der DB voraussichtlich Mitte 2027 abgeschaltet)'}`,
+		);
 
 		// komplette, konfigurierte Liste (auch deaktivierte Zeilen), Reihenfolge = Index = "Nr" wie im alten Adapter
 		this.entries = this.config.stations || [];
@@ -54,6 +56,18 @@ class Dbtimetables extends utils.Adapter {
 		const intervalSec = Math.max(20, Number(this.config.pollInterval) || 60);
 		await this.pollAll();
 		this.pollTimer = this.setInterval(() => this.pollAll(), intervalSec * 1000);
+	}
+
+	/** true, wenn OpenBoards/OpenStation genutzt werden soll (Standard), false für die alte Timetables-API. */
+	useOpenBoards() {
+		return this.config.api !== 'timetables';
+	}
+
+	createClient() {
+		const options = { debug: msg => this.log.debug(msg) };
+		return this.useOpenBoards()
+			? new OpenBoardsClient(this.config.clientId, this.config.apiKey, options)
+			: new DbTimetablesClient(this.config.clientId, this.config.apiKey, options);
 	}
 
 	onUnload(callback) {
@@ -88,9 +102,7 @@ class Dbtimetables extends utils.Adapter {
 			(async () => {
 				try {
 					if (!this.client && this.config.clientId && this.config.apiKey) {
-						this.client = new DbTimetablesClient(this.config.clientId, this.config.apiKey, {
-							debug: msg => this.log.debug(msg),
-						});
+						this.client = this.createClient();
 					}
 					if (!this.client) {
 						throw new Error(
@@ -256,7 +268,7 @@ class Dbtimetables extends utils.Adapter {
 			},
 			native: {},
 		});
-		// zusätzlich zum Original: Ausfall-Flag (IRIS liefert das, HAFAS-Version der Abfahrtstafel hatte es nicht)
+		// zusätzlich zum Original: Ausfall-Flag (die DB-APIs liefern das, die HAFAS-Version der Abfahrtstafel hatte es nicht)
 		await this.setObjectNotExistsAsync(`${path}.Cancelled`, {
 			type: 'state',
 			common: {
@@ -412,8 +424,8 @@ class Dbtimetables extends utils.Adapter {
 		await this.setStateAsync(`${path}.Cancelled`, !!dep.cancelled, true);
 		await this.setStateAsync(`${path}.Name`, dep.line, true);
 		await this.setStateAsync(`${path}.Direction`, dep.destination, true);
-		await this.setStateAsync(`${path}.Mode`, this.guessMode(dep.category), true);
-		// IRIS liefert nur den numerischen EVU-Code, keinen Klarnamen (anders als HAFAS)
+		await this.setStateAsync(`${path}.Mode`, dep.mode || this.guessMode(dep.category), true);
+		// OpenBoards liefert den Betreibernamen, Timetables (IRIS) nur den numerischen EVU-Code
 		await this.setStateAsync(`${path}.Operator`, dep.owner || '', true);
 		await this.setStateAsync(`${path}.Product`, dep.category, true);
 		await this.setStateAsync(`${path}.Platform`, dep.platform, true);

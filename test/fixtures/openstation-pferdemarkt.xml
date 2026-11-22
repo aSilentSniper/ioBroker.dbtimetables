@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PublicationDelivery xmlns="http://www.netex.org.uk/netex" xmlns:ns2="http://www.opengis.net/gml/3.2" xmlns:ns3="http://www.siri.org.uk/siri" version="1781175300">
+    <PublicationTimestamp>2026-11-22T16:20:41.204Z</PublicationTimestamp>
+    <ParticipantRef>DB</ParticipantRef>
+    <dataObjects>
+        <CompositeFrame version="1781175300" id="epd:de:DB:CompositeFrame:EU_PI_STOP_OFFER:DB:bb46fdae-4f55-589b-9f16-7098fc0a595b">
+            <keyList>
+                <KeyValue>
+                    <Key>NORMALIZED_ID_URI</Key>
+                    <Value>http://netex-cen.eu/epip_data/de%3ADB%3ACompositeFrame%3AEU_PI_STOP_OFFER%3ADB</Value>
+                </KeyValue>
+            </keyList>
+            <TypeOfFrameRef ref="epip:EU_PI_STOP_OFFER" versionRef="1.0"/>
+            <frames>
+                <SiteFrame version="1781175300" id="epd:de:DB:SiteFrame:EU_PI_STOP:DB:88401e11-e534-5789-b6d4-a1379fb50cb3">
+                    <keyList>
+                        <KeyValue>
+                            <Key>NORMALIZED_ID_URI</Key>
+                            <Value>http://netex-cen.eu/epip_data/de%3ADB%3ASiteFrame%3AEU_PI_STOP%3ADB</Value>
+                        </KeyValue>
+                    </keyList>
+                    <TypeOfFrameRef ref="epip:EU_PI_STOP" versionRef="1.0"/>
+                    <stopPlaces>
+                        <StopPlace responsibilitySetRef="dbinfrago:511c7aa7-b6a2-534c-a2d5-d6a867e6aeee" version="1781175300" id="dhid:de:03241:9898:EdB">
+                            <keyList>
+                                <KeyValue>
+                                    <Key>NORMALIZED_ID_URI</Key>
+                                    <Value>https://id.vdv.de/dhid/de%3A03241%3A9898%3AEdB</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>EVA</Key>
+                                    <Value>8003542</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HLGH</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>FEDERAL_STATE</Key>
+                                    <Value>DE-NI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_STATION_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_PRICE_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                            </keyList>
+                            <privateCodes>
+                                <PrivateCode type="https://daten.bahnhof.de/namespace/stada/">3539</PrivateCode>
+                            </privateCodes>
+                            <Name lang="de">Langenhagen Pferdemarkt<Text lang="de">Langenhagen Pferdemarkt</Text>
+                            </Name>
+                            <PrivateCode>3539</PrivateCode>
+                            <placeTypes>
+                                <TypeOfPlaceRef ref="epip:monomodal" versionRef="1.0"/>
+                            </placeTypes>
+                            <Url>https://www.bahnhof.de/id/3539</Url>
+                        </StopPlace>
+                    </stopPlaces>
+                </SiteFrame>
+            </frames>
+        </CompositeFrame>
+    </dataObjects>
+</PublicationDelivery>

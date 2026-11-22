@@ -1,0 +1,2527 @@
+{
+ "administrations": [
+  {
+   "administrationId": "W3",
+   "operatorCode": "WFB",
+   "operatorName": "WestfalenBahn",
+   "transportCompanies": [
+    {
+     "email": "info@westfalenbahn.de",
+     "language": "deu",
+     "name": "WestfalenBahn GmbH",
+     "phoneNumber": "+49 521 55777755",
+     "shortName": "WestfalenBahn GmbH",
+     "website": "https://www.westfalenbahn.de"
+    }
+   ]
+  },
+  {
+   "administrationId": "800295",
+   "operatorCode": "DB",
+   "operatorName": "DB Regio AG Nord",
+   "transportCompanies": [
+    {
+     "language": "deu",
+     "name": "DB Regio AG",
+     "phoneNumber": "+49 30 2970",
+     "shortName": "DB Regio AG",
+     "website": "https://www.dbregio.de"
+    }
+   ]
+  },
+  {
+   "administrationId": "TDHS",
+   "operatorCode": "SBH",
+   "operatorName": "S-Bahn Hannover (Transdev)",
+   "transportCompanies": [
+    {
+     "email": "info@sbahn-hannover.de",
+     "language": "deu",
+     "name": "Transdev Hannover GmbH",
+     "phoneNumber": "0511 897 69 000",
+     "shortName": "Transdev Hannover GmbH",
+     "website": "https://www.sbahn-hannover.de"
+    }
+   ]
+  },
+  {
+   "administrationId": "80",
+   "operatorCode": "DB",
+   "operatorName": "DB Fernverkehr AG",
+   "transportCompanies": [
+    {
+     "language": "deu",
+     "name": "DB Fernverkehr AG",
+     "phoneNumber": "+49 30 2970",
+     "shortName": "DB Fernverkehr AG",
+     "website": "https://www.bahn.de"
+    }
+   ]
+  },
+  {
+   "administrationId": "800248",
+   "operatorCode": "DB",
+   "operatorName": "DB Regio AG Nord",
+   "transportCompanies": [
+    {
+     "language": "deu",
+     "name": "DB Regio AG",
+     "phoneNumber": "+49 30 2970",
+     "shortName": "DB Regio AG",
+     "website": "https://www.dbregio.de"
+    }
+   ]
+  },
+  {
+   "administrationId": "R1",
+   "operatorCode": "ME",
+   "operatorName": "metronom",
+   "transportCompanies": [
+    {
+     "email": "info@der-metronom.de",
+     "language": "deu",
+     "name": "metronom Eisenbahngesellschaft mbH",
+     "phoneNumber": "+49 581 97164164",
+     "shortName": "metronom Eisenbahngesellschaft mbH",
+     "website": "https://www.der-metronom.de",
+     "websiteDigitalAssistant": "https://www.der-metronom.de/hildegard/"
+    }
+   ]
+  }
+ ],
+ "departures": [
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "journeyId": "20261122-3ecd04a0-8f31-3b41-b346-aff4f7348462",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8000316"
+    },
+    "headerAdministrationId": "W3",
+    "headerJourneyNumber": 95782,
+    "origin": {
+     "evaNumber": "8000049"
+    },
+    "scheduledStartTime": "2026-11-22T16:20:00+01:00",
+    "transportAtStart": {
+     "administrationId": "W3",
+     "category": "WFB",
+     "categoryInternal": "DRE",
+     "journeyDescription": "RE60",
+     "journeyNumber": 95782,
+     "line": {
+      "name": "RE60"
+     },
+     "operationalJourneyNumber": "95782",
+     "type": "REGIONAL_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    5,
+    6,
+    7,
+    8
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:95:10",
+    "name": "11"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:94:8",
+    "name": "10"
+   },
+   "time": "2026-11-22T17:18:00+01:00",
+   "timeSchedule": "2026-11-22T17:09:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "W3",
+    "category": "WFB",
+    "categoryInternal": "DRE",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8000316"
+      }
+     ]
+    },
+    "journeyDescription": "RE60",
+    "journeyNumber": 95782,
+    "line": {
+     "name": "RE60"
+    },
+    "operationalJourneyNumber": "95782",
+    "type": "REGIONAL_TRAIN",
+    "via": [
+     {
+      "displayPriority": 2,
+      "evaNumber": "8000268"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8000252"
+     },
+     {
+      "displayPriority": 1,
+      "evaNumber": "8000294"
+     }
+    ]
+   }
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "futureDisruptions": true,
+   "journeyId": "20261122-24c2bf8f-20ac-35b6-a48f-db10770722fe",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8000050"
+    },
+    "headerAdministrationId": "800295",
+    "headerJourneyNumber": 4426,
+    "origin": {
+     "evaNumber": "8000152"
+    },
+    "scheduledStartTime": "2026-11-22T17:20:00+01:00",
+    "transportAtStart": {
+     "administrationId": "800295",
+     "category": "RE",
+     "categoryInternal": "NRE",
+     "journeyDescription": "RE1",
+     "journeyNumber": 4426,
+     "line": {
+      "name": "RE1"
+     },
+     "operationalJourneyNumber": "4426",
+     "type": "REGIONAL_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    9,
+    7
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:94:8",
+    "name": "10"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:95:9",
+    "name": "12"
+   },
+   "time": "2026-11-22T17:20:00+01:00",
+   "timeSchedule": "2026-11-22T17:20:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "800295",
+    "category": "RE",
+    "categoryInternal": "NRE",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8000050"
+      }
+     ]
+    },
+    "journeyDescription": "RE1",
+    "journeyNumber": 4426,
+    "line": {
+     "name": "RE1"
+    },
+    "operationalJourneyNumber": "4426",
+    "type": "REGIONAL_TRAIN",
+    "via": [
+     {
+      "displayPriority": 1,
+      "evaNumber": "8000268"
+     },
+     {
+      "displayPriority": 2,
+      "evaNumber": "8000279"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8006076"
+     }
+    ]
+   },
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "futureDisruptions": true,
+   "journeyId": "20261122-311cdcff-79aa-3e6e-ae29-a71034727fd3",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8002634"
+    },
+    "headerAdministrationId": "TDHS",
+    "headerJourneyNumber": 34225,
+    "origin": {
+     "evaNumber": "8000279"
+    },
+    "scheduledStartTime": "2026-11-22T16:12:00+01:00",
+    "transportAtStart": {
+     "administrationId": "TDHS",
+     "category": "SBH",
+     "categoryInternal": "DRS",
+     "journeyDescription": "S2",
+     "journeyNumber": 34225,
+     "line": {
+      "name": "S2"
+     },
+     "operationalJourneyNumber": "34225",
+     "type": "CITY_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    1,
+    6,
+    10
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:91:2",
+    "name": "2"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:91:1",
+    "name": "1"
+   },
+   "time": "2026-11-22T17:21:00+01:00",
+   "timeSchedule": "2026-11-22T17:03:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "TDHS",
+    "category": "SBH",
+    "categoryInternal": "DRS",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8002634"
+      }
+     ]
+    },
+    "journeyDescription": "S2",
+    "journeyNumber": 34225,
+    "line": {
+     "name": "S2"
+    },
+    "operationalJourneyNumber": "34225",
+    "type": "CITY_TRAIN",
+    "via": [
+     {
+      "displayPriority": 1,
+      "evaNumber": "8002580"
+     },
+     {
+      "displayPriority": 2,
+      "evaNumber": "8002586"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8000342"
+     }
+    ]
+   },
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "cancelled": true,
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "futureDisruptions": true,
+   "journeyId": "20261122-3d530ea0-c836-32ff-8d14-6c98bb71b248",
+   "journeyInfo": {
+    "destination": {
+     "cancelled": true,
+     "evaNumber": "8000148"
+    },
+    "differingDestination": {
+     "evaNumber": "8000152"
+    },
+    "headerAdministrationId": "TDHS",
+    "headerJourneyNumber": 34569,
+    "origin": {
+     "evaNumber": "8002589"
+    },
+    "scheduledStartTime": "2026-11-22T17:06:00+01:00",
+    "transportAtStart": {
+     "administrationId": "TDHS",
+     "category": "SBH",
+     "categoryInternal": "DRS",
+     "journeyDescription": "S5",
+     "journeyNumber": 34569,
+     "line": {
+      "name": "S5"
+     },
+     "operationalJourneyNumber": "34569",
+     "type": "CITY_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    1,
+    4,
+    6,
+    10
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:91:1",
+    "name": "1"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:91:1",
+    "name": "1"
+   },
+   "time": "2026-11-22T17:25:00+01:00",
+   "timeSchedule": "2026-11-22T17:25:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "TDHS",
+    "category": "SBH",
+    "categoryInternal": "DRS",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8000148"
+      }
+     ]
+    },
+    "journeyDescription": "S5",
+    "journeyNumber": 34569,
+    "line": {
+     "name": "S5"
+    },
+    "operationalJourneyNumber": "34569",
+    "type": "CITY_TRAIN",
+    "via": [
+     {
+      "cancelled": true,
+      "displayPriority": 1,
+      "evaNumber": "8002580"
+     },
+     {
+      "cancelled": true,
+      "displayPriority": 2,
+      "evaNumber": "8002586"
+     },
+     {
+      "cancelled": true,
+      "displayPriority": 3,
+      "evaNumber": "8000342"
+     },
+     {
+      "cancelled": true,
+      "displayPriority": 8,
+      "evaNumber": "8002969"
+     },
+     {
+      "cancelled": true,
+      "displayPriority": 5,
+      "evaNumber": "8000872"
+     },
+     {
+      "cancelled": true,
+      "displayPriority": 6,
+      "evaNumber": "8001741"
+     },
+     {
+      "cancelled": true,
+      "displayPriority": 4,
+      "evaNumber": "8005638"
+     },
+     {
+      "cancelled": true,
+      "displayPriority": 7,
+      "evaNumber": "8000725"
+     }
+    ]
+   }
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "futureDisruptions": true,
+   "journeyId": "20261122-992b4828-3480-37d4-8601-e39d310de8d3",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8000261"
+    },
+    "headerAdministrationId": "80",
+    "headerJourneyNumber": 883,
+    "origin": {
+     "evaNumber": "8002548"
+    },
+    "scheduledStartTime": "2026-11-22T15:53:00+01:00",
+    "transportAtStart": {
+     "administrationId": "80",
+     "category": "ICE",
+     "categoryInternal": "ICE",
+     "journeyDescription": "ICE 883",
+     "journeyNumber": 883,
+     "operationalJourneyNumber": "883",
+     "type": "HIGH_SPEED_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    3,
+    11,
+    6,
+    7,
+    12
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:92:3",
+    "name": "3"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:92:3",
+    "name": "3"
+   },
+   "time": "2026-11-22T17:27:00+01:00",
+   "timeSchedule": "2026-11-22T17:27:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "80",
+    "category": "ICE",
+    "categoryInternal": "ICE",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8000261"
+      }
+     ]
+    },
+    "journeyDescription": "ICE 883",
+    "journeyNumber": 883,
+    "operationalJourneyNumber": "883",
+    "type": "HIGH_SPEED_TRAIN",
+    "via": [
+     {
+      "displayPriority": 2,
+      "evaNumber": "8000128"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8003200"
+     },
+     {
+      "displayPriority": 1,
+      "evaNumber": "8000013"
+     }
+    ]
+   },
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "continuationFor": [
+    {
+     "administrationId": "TDHS",
+     "category": "SBH",
+     "categoryInternal": "DRS",
+     "journeyDescription": "S1",
+     "journeyID": "20261122-d2357824-2a0a-335b-ab16-dd1b503acb5b",
+     "journeyNumber": 34182,
+     "line": {
+      "name": "S1"
+     },
+     "operationalJourneyNumber": "34182",
+     "origin": {
+      "evaNumber": "8002634"
+     },
+     "type": "CITY_TRAIN"
+    }
+   ],
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "journeyId": "20261122-884e6214-9aa0-3d86-bdf8-1fa8a6c9d39e",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8000252"
+    },
+    "headerAdministrationId": "TDHS",
+    "headerJourneyNumber": 34132,
+    "origin": {
+     "evaNumber": "8000152"
+    },
+    "scheduledStartTime": "2026-11-22T17:28:00+01:00",
+    "transportAtStart": {
+     "administrationId": "TDHS",
+     "category": "SBH",
+     "categoryInternal": "DRS",
+     "journeyDescription": "S1",
+     "journeyNumber": 34132,
+     "line": {
+      "name": "S1"
+     },
+     "operationalJourneyNumber": "34132",
+     "type": "CITY_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    1,
+    6
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:91:2",
+    "name": "2"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:91:2",
+    "name": "2"
+   },
+   "time": "2026-11-22T17:28:00+01:00",
+   "timeSchedule": "2026-11-22T17:28:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "TDHS",
+    "category": "SBH",
+    "categoryInternal": "DRS",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8000252"
+      }
+     ]
+    },
+    "journeyDescription": "S1",
+    "journeyNumber": 34132,
+    "line": {
+     "name": "S1"
+    },
+    "operationalJourneyNumber": "34132",
+    "type": "CITY_TRAIN",
+    "via": [
+     {
+      "displayPriority": 2,
+      "evaNumber": "8079095"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8005507"
+     },
+     {
+      "displayPriority": 1,
+      "evaNumber": "8000268"
+     }
+    ]
+   },
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "futureDisruptions": true,
+   "journeyId": "20261122-1126d098-355e-343f-8c9b-9c3cc438fe70",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8000001"
+    },
+    "headerAdministrationId": "80",
+    "headerJourneyNumber": 846,
+    "origin": {
+     "evaNumber": "8098160"
+    },
+    "scheduledStartTime": "2026-11-22T14:38:00+01:00",
+    "transportAtStart": {
+     "administrationId": "80",
+     "category": "ICE",
+     "categoryInternal": "ICE",
+     "journeyDescription": "ICE 846",
+     "journeyNumber": 846,
+     "operationalJourneyNumber": "846",
+     "type": "HIGH_SPEED_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    11,
+    6,
+    7,
+    12
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:95:9",
+    "name": "12"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:95:9",
+    "name": "12"
+   },
+   "time": "2026-11-22T17:34:00+01:00",
+   "timeSchedule": "2026-11-22T17:31:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "80",
+    "category": "ICE",
+    "categoryInternal": "ICE",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8000001"
+      }
+     ]
+    },
+    "journeyDescription": "ICE 846",
+    "journeyNumber": 846,
+    "operationalJourneyNumber": "846",
+    "type": "HIGH_SPEED_TRAIN",
+    "via": [
+     {
+      "displayPriority": 1,
+      "evaNumber": "8000080"
+     },
+     {
+      "displayPriority": 2,
+      "evaNumber": "8000098"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8000086"
+     }
+    ]
+   },
+   "travelsWith": [
+    {
+     "administrationId": "80",
+     "category": "ICE",
+     "categoryInternal": "ICE",
+     "destination": {
+      "evaNumber": "8000207"
+     },
+     "journeyDescription": "ICE 856",
+     "journeyID": "20261122-d19ba6cb-9501-3202-94b0-6bdddbb22e91",
+     "journeyNumber": 856,
+     "operationalJourneyNumber": "856",
+     "separationAt": {
+      "evaNumber": "8000149"
+     },
+     "type": "HIGH_SPEED_TRAIN"
+    }
+   ],
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "futureDisruptions": true,
+   "journeyId": "20261122-d19ba6cb-9501-3202-94b0-6bdddbb22e91",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8000207"
+    },
+    "headerAdministrationId": "80",
+    "headerJourneyNumber": 856,
+    "origin": {
+     "evaNumber": "8098160"
+    },
+    "scheduledStartTime": "2026-11-22T14:38:00+01:00",
+    "transportAtStart": {
+     "administrationId": "80",
+     "category": "ICE",
+     "categoryInternal": "ICE",
+     "journeyDescription": "ICE 856",
+     "journeyNumber": 856,
+     "operationalJourneyNumber": "856",
+     "type": "HIGH_SPEED_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    11,
+    6,
+    7,
+    12
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:95:9",
+    "name": "12"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:95:9",
+    "name": "12"
+   },
+   "time": "2026-11-22T17:34:00+01:00",
+   "timeSchedule": "2026-11-22T17:31:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "80",
+    "category": "ICE",
+    "categoryInternal": "ICE",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8000207"
+      }
+     ]
+    },
+    "journeyDescription": "ICE 856",
+    "journeyNumber": 856,
+    "operationalJourneyNumber": "856",
+    "type": "HIGH_SPEED_TRAIN",
+    "via": [
+     {
+      "displayPriority": 1,
+      "evaNumber": "8000036"
+     },
+     {
+      "displayPriority": 2,
+      "evaNumber": "8000149"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8000142"
+     }
+    ]
+   },
+   "travelsWith": [
+    {
+     "administrationId": "80",
+     "category": "ICE",
+     "categoryInternal": "ICE",
+     "destination": {
+      "evaNumber": "8000001"
+     },
+     "journeyDescription": "ICE 846",
+     "journeyID": "20261122-1126d098-355e-343f-8c9b-9c3cc438fe70",
+     "journeyNumber": 846,
+     "operationalJourneyNumber": "846",
+     "separationAt": {
+      "evaNumber": "8000149"
+     },
+     "type": "HIGH_SPEED_TRAIN"
+    }
+   ],
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "futureDisruptions": true,
+   "journeyId": "20261122-b6205bf4-3491-3a23-a75a-4a4aa1ce91e8",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8000169"
+    },
+    "headerAdministrationId": "TDHS",
+    "headerJourneyNumber": 34327,
+    "origin": {
+     "evaNumber": "8000152"
+    },
+    "scheduledStartTime": "2026-11-22T17:34:00+01:00",
+    "transportAtStart": {
+     "administrationId": "TDHS",
+     "category": "SBH",
+     "categoryInternal": "DRS",
+     "journeyDescription": "S3",
+     "journeyNumber": 34327,
+     "line": {
+      "name": "S3"
+     },
+     "operationalJourneyNumber": "34327",
+     "type": "CITY_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    6
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:96:12",
+    "name": "13"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:96:12",
+    "name": "13"
+   },
+   "time": "2026-11-22T17:34:00+01:00",
+   "timeSchedule": "2026-11-22T17:34:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "TDHS",
+    "category": "SBH",
+    "categoryInternal": "DRS",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8000169"
+      }
+     ]
+    },
+    "journeyDescription": "S3",
+    "journeyNumber": 34327,
+    "line": {
+     "name": "S3"
+    },
+    "operationalJourneyNumber": "34327",
+    "type": "CITY_TRAIN",
+    "via": [
+     {
+      "displayPriority": 3,
+      "evaNumber": "8002584"
+     },
+     {
+      "displayPriority": 2,
+      "evaNumber": "8070086"
+     },
+     {
+      "displayPriority": 1,
+      "evaNumber": "8000226"
+     }
+    ]
+   },
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "futureDisruptions": true,
+   "journeyId": "20261122-07540eb4-5c93-3b18-b5cc-99c3833ca168",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8002589"
+    },
+    "differingOrigin": {
+     "evaNumber": "8000152"
+    },
+    "headerAdministrationId": "TDHS",
+    "headerJourneyNumber": 34570,
+    "origin": {
+     "cancelled": true,
+     "evaNumber": "8000148"
+    },
+    "scheduledStartTime": "2026-11-22T16:50:00+01:00",
+    "transportAtStart": {
+     "administrationId": "TDHS",
+     "category": "SBH",
+     "categoryInternal": "DRS",
+     "journeyDescription": "S5",
+     "journeyNumber": 34570,
+     "line": {
+      "name": "S5"
+     },
+     "operationalJourneyNumber": "34570",
+     "type": "CITY_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    1,
+    6,
+    10
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:91:2",
+    "name": "2"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:91:2",
+    "name": "2"
+   },
+   "time": "2026-11-22T17:35:00+01:00",
+   "timeSchedule": "2026-11-22T17:35:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "TDHS",
+    "category": "SBH",
+    "categoryInternal": "DRS",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8002589"
+      }
+     ]
+    },
+    "journeyDescription": "S5",
+    "journeyNumber": 34570,
+    "line": {
+     "name": "S5"
+    },
+    "operationalJourneyNumber": "34570",
+    "type": "CITY_TRAIN",
+    "via": [
+     {
+      "displayPriority": 2,
+      "evaNumber": "8079095"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8079097"
+     },
+     {
+      "displayPriority": 1,
+      "evaNumber": "8003545"
+     }
+    ]
+   },
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "journeyId": "20261122-b90ecff3-54cd-38f5-9589-263cc488e137",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8000128"
+    },
+    "headerAdministrationId": "800248",
+    "headerJourneyNumber": 82827,
+    "origin": {
+     "evaNumber": "8000152"
+    },
+    "scheduledStartTime": "2026-11-22T17:36:00+01:00",
+    "transportAtStart": {
+     "administrationId": "800248",
+     "category": "RE",
+     "categoryInternal": "NRE",
+     "journeyDescription": "RE2",
+     "journeyNumber": 82827,
+     "line": {
+      "name": "RE2"
+     },
+     "operationalJourneyNumber": "82827",
+     "type": "REGIONAL_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    9,
+    5
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:92:4",
+    "name": "4 A-C"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:92:4",
+    "name": "4 A-C"
+   },
+   "time": "2026-11-22T17:36:00+01:00",
+   "timeSchedule": "2026-11-22T17:36:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "800248",
+    "category": "RE",
+    "categoryInternal": "NRE",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8000128"
+      }
+     ]
+    },
+    "journeyDescription": "RE2",
+    "journeyNumber": 82827,
+    "line": {
+     "name": "RE2"
+    },
+    "operationalJourneyNumber": "82827",
+    "type": "REGIONAL_TRAIN",
+    "via": [
+     {
+      "displayPriority": 2,
+      "evaNumber": "8000093"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8000483"
+     },
+     {
+      "displayPriority": 1,
+      "evaNumber": "8000283"
+     }
+    ]
+   },
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "futureDisruptions": true,
+   "journeyId": "20261122-9b3add91-6859-35f7-ad17-aef8ceeb5b66",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8000871"
+    },
+    "headerAdministrationId": "TDHS",
+    "headerJourneyNumber": 34454,
+    "origin": {
+     "evaNumber": "8000152"
+    },
+    "scheduledStartTime": "2026-11-22T17:40:00+01:00",
+    "transportAtStart": {
+     "administrationId": "TDHS",
+     "category": "SBH",
+     "categoryInternal": "DRS",
+     "journeyDescription": "S4",
+     "journeyNumber": 34454,
+     "line": {
+      "name": "S4"
+     },
+     "operationalJourneyNumber": "34454",
+     "type": "CITY_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    6
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:91:2",
+    "name": "2"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:91:2",
+    "name": "2"
+   },
+   "time": "2026-11-22T17:40:00+01:00",
+   "timeSchedule": "2026-11-22T17:40:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "TDHS",
+    "category": "SBH",
+    "categoryInternal": "DRS",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8000871"
+      }
+     ]
+    },
+    "journeyDescription": "S4",
+    "journeyNumber": 34454,
+    "line": {
+     "name": "S4"
+    },
+    "operationalJourneyNumber": "34454",
+    "type": "CITY_TRAIN",
+    "via": [
+     {
+      "displayPriority": 2,
+      "evaNumber": "8079095"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8079097"
+     },
+     {
+      "displayPriority": 1,
+      "evaNumber": "8003545"
+     }
+    ]
+   },
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "journeyId": "20261122-64690144-63da-315c-bd6d-d7a9c3c3720d",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8000168"
+    },
+    "headerAdministrationId": "R1",
+    "headerJourneyNumber": 82884,
+    "origin": {
+     "evaNumber": "8000152"
+    },
+    "scheduledStartTime": "2026-11-22T17:40:00+01:00",
+    "transportAtStart": {
+     "administrationId": "R1",
+     "category": "ME",
+     "categoryInternal": "DRE",
+     "journeyDescription": "RE3",
+     "journeyNumber": 82884,
+     "line": {
+      "name": "RE3"
+     },
+     "operationalJourneyNumber": "82884",
+     "type": "REGIONAL_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    9,
+    5,
+    13
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:92:4",
+    "name": "4 D-G"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:92:4",
+    "name": "4 D-G"
+   },
+   "time": "2026-11-22T17:40:00+01:00",
+   "timeSchedule": "2026-11-22T17:40:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "R1",
+    "category": "ME",
+    "categoryInternal": "DRE",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8000168"
+      }
+     ]
+    },
+    "journeyDescription": "RE3",
+    "journeyNumber": 82884,
+    "line": {
+     "name": "RE3"
+    },
+    "operationalJourneyNumber": "82884",
+    "type": "REGIONAL_TRAIN",
+    "via": [
+     {
+      "displayPriority": 1,
+      "evaNumber": "8003545"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8002403"
+     },
+     {
+      "displayPriority": 2,
+      "evaNumber": "8000064"
+     }
+    ]
+   }
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "futureDisruptions": true,
+   "journeyId": "20261122-810832bc-72b6-3bd0-b8f5-2f46b10d7b1d",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8098160"
+    },
+    "headerAdministrationId": "80",
+    "headerJourneyNumber": 641,
+    "origin": {
+     "evaNumber": "8000085"
+    },
+    "scheduledStartTime": "2026-11-22T14:48:00+01:00",
+    "transportAtStart": {
+     "administrationId": "80",
+     "category": "ICE",
+     "categoryInternal": "ICE",
+     "journeyDescription": "ICE 641",
+     "journeyNumber": 641,
+     "operationalJourneyNumber": "641",
+     "type": "HIGH_SPEED_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    11,
+    8
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:94:7",
+    "name": "9"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:94:7",
+    "name": "9"
+   },
+   "time": "2026-11-22T17:41:00+01:00",
+   "timeSchedule": "2026-11-22T17:31:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "80",
+    "category": "ICE",
+    "categoryInternal": "ICE",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8098160"
+      }
+     ]
+    },
+    "journeyDescription": "ICE 641",
+    "journeyNumber": 641,
+    "operationalJourneyNumber": "641",
+    "type": "HIGH_SPEED_TRAIN",
+    "via": [
+     {
+      "displayPriority": 1,
+      "evaNumber": "8000049"
+     },
+     {
+      "displayPriority": 2,
+      "evaNumber": "8012666"
+     }
+    ]
+   },
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "journeyId": "20261122-e2356385-43ec-3616-a2a9-a5a4304d0dfd",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8000064"
+    },
+    "headerAdministrationId": "TDHS",
+    "headerJourneyNumber": 34624,
+    "origin": {
+     "evaNumber": "8000152"
+    },
+    "scheduledStartTime": "2026-11-22T17:41:00+01:00",
+    "transportAtStart": {
+     "administrationId": "TDHS",
+     "category": "SBH",
+     "categoryInternal": "DRS",
+     "journeyDescription": "S6",
+     "journeyNumber": 34624,
+     "line": {
+      "name": "S6"
+     },
+     "operationalJourneyNumber": "34624",
+     "type": "CITY_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    6
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:96:11",
+    "name": "14 A-C"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:96:11",
+    "name": "14 A-C"
+   },
+   "time": "2026-11-22T17:41:00+01:00",
+   "timeSchedule": "2026-11-22T17:41:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "TDHS",
+    "category": "SBH",
+    "categoryInternal": "DRS",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8000064"
+      }
+     ]
+    },
+    "journeyDescription": "S6",
+    "journeyNumber": 34624,
+    "line": {
+     "name": "S6"
+    },
+    "operationalJourneyNumber": "34624",
+    "type": "CITY_TRAIN",
+    "via": [
+     {
+      "displayPriority": 1,
+      "evaNumber": "8070086"
+     },
+     {
+      "displayPriority": 2,
+      "evaNumber": "8001279"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8001687"
+     }
+    ]
+   },
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "continuationFor": [
+    {
+     "administrationId": "TDHS",
+     "category": "SBH",
+     "categoryInternal": "DRS",
+     "journeyDescription": "S1",
+     "journeyID": "20261122-4e952233-ab91-3c93-ae74-0b6cb1f426b4",
+     "journeyNumber": 34133,
+     "line": {
+      "name": "S1"
+     },
+     "operationalJourneyNumber": "34133",
+     "origin": {
+      "evaNumber": "8000252"
+     },
+     "type": "CITY_TRAIN"
+    }
+   ],
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "futureDisruptions": true,
+   "journeyId": "20261122-7c023bc9-5f60-3673-b88c-6ae1edb1d1a9",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8002634"
+    },
+    "headerAdministrationId": "TDHS",
+    "headerJourneyNumber": 34183,
+    "origin": {
+     "evaNumber": "8000152"
+    },
+    "scheduledStartTime": "2026-11-22T17:33:00+01:00",
+    "transportAtStart": {
+     "administrationId": "TDHS",
+     "category": "SBH",
+     "categoryInternal": "DRS",
+     "journeyDescription": "S1",
+     "journeyNumber": 34183,
+     "line": {
+      "name": "S1"
+     },
+     "operationalJourneyNumber": "34183",
+     "type": "CITY_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    1,
+    6,
+    10
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:91:1",
+    "name": "1"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:91:1",
+    "name": "1"
+   },
+   "time": "2026-11-22T17:42:00+01:00",
+   "timeSchedule": "2026-11-22T17:33:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "TDHS",
+    "category": "SBH",
+    "categoryInternal": "DRS",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8002634"
+      }
+     ]
+    },
+    "journeyDescription": "S1",
+    "journeyNumber": 34183,
+    "line": {
+     "name": "S1"
+    },
+    "operationalJourneyNumber": "34183",
+    "type": "CITY_TRAIN",
+    "via": [
+     {
+      "displayPriority": 1,
+      "evaNumber": "8002580"
+     },
+     {
+      "displayPriority": 2,
+      "evaNumber": "8002586"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8000342"
+     }
+    ]
+   },
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "futureDisruptions": true,
+   "journeyId": "20261122-bc423500-f258-35bf-8841-fe48b6e34b39",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8011102"
+    },
+    "headerAdministrationId": "80",
+    "headerJourneyNumber": 651,
+    "origin": {
+     "evaNumber": "8000207"
+    },
+    "scheduledStartTime": "2026-11-22T14:44:00+01:00",
+    "transportAtStart": {
+     "administrationId": "80",
+     "category": "ICE",
+     "categoryInternal": "ICE",
+     "journeyDescription": "ICE 651",
+     "journeyNumber": 651,
+     "operationalJourneyNumber": "651",
+     "type": "HIGH_SPEED_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    11,
+    14,
+    12,
+    8
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:94:7",
+    "name": "9"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:94:7",
+    "name": "9"
+   },
+   "time": "2026-11-22T17:52:00+01:00",
+   "timeSchedule": "2026-11-22T17:25:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "80",
+    "category": "ICE",
+    "categoryInternal": "ICE",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8011102"
+      }
+     ]
+    },
+    "journeyDescription": "ICE 651",
+    "journeyNumber": 651,
+    "operationalJourneyNumber": "651",
+    "type": "HIGH_SPEED_TRAIN",
+    "via": [
+     {
+      "displayPriority": 2,
+      "evaNumber": "8010224"
+     },
+     {
+      "displayPriority": 1,
+      "evaNumber": "8098160"
+     }
+    ]
+   },
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "journeyId": "20261122-d3ab081f-e46e-3562-b710-c771503c287f",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8000050"
+    },
+    "headerAdministrationId": "80",
+    "headerJourneyNumber": 1576,
+    "origin": {
+     "evaNumber": "8000191"
+    },
+    "scheduledStartTime": "2026-11-22T12:41:00+01:00",
+    "transportAtStart": {
+     "administrationId": "80",
+     "category": "ICE",
+     "categoryInternal": "ICE",
+     "journeyDescription": "ICE 1576",
+     "journeyNumber": 1576,
+     "operationalJourneyNumber": "1576",
+     "type": "HIGH_SPEED_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    11,
+    14,
+    12,
+    15
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:93:6",
+    "name": "8"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:93:6",
+    "name": "8"
+   },
+   "time": "2026-11-22T17:53:00+01:00",
+   "timeSchedule": "2026-11-22T17:45:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "80",
+    "category": "ICE",
+    "categoryInternal": "ICE",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8000050"
+      }
+     ]
+    },
+    "journeyDescription": "ICE 1576",
+    "journeyNumber": 1576,
+    "operationalJourneyNumber": "1576",
+    "type": "HIGH_SPEED_TRAIN"
+   },
+   "vehicleSequenceAvailable": true
+  },
+  {
+   "departureId": "8000152_D_1",
+   "evaNumber": "8000152",
+   "futureDisruptions": true,
+   "journeyId": "20261122-cd33d18c-9651-3f5a-b91f-385442cb37c6",
+   "journeyInfo": {
+    "destination": {
+     "evaNumber": "8010304"
+    },
+    "headerAdministrationId": "80",
+    "headerJourneyNumber": 588,
+    "origin": {
+     "evaNumber": "8000261"
+    },
+    "scheduledStartTime": "2026-11-22T12:38:00+01:00",
+    "transportAtStart": {
+     "administrationId": "80",
+     "category": "ICE",
+     "categoryInternal": "ICE",
+     "journeyDescription": "ICE 588",
+     "journeyNumber": 588,
+     "label": "Warnow",
+     "operationalJourneyNumber": "588",
+     "type": "HIGH_SPEED_TRAIN"
+    },
+    "type": "REGULAR"
+   },
+   "messages": [
+    2,
+    11,
+    6,
+    7,
+    12,
+    16
+   ],
+   "platform": {
+    "ifopt": "de:03241:31:93:5",
+    "name": "7"
+   },
+   "platformSchedule": {
+    "ifopt": "de:03241:31:93:5",
+    "name": "7"
+   },
+   "time": "2026-11-22T18:23:00+01:00",
+   "timeSchedule": "2026-11-22T17:36:00+01:00",
+   "timeType": "PREVIEW",
+   "transport": {
+    "administrationId": "80",
+    "category": "ICE",
+    "categoryInternal": "ICE",
+    "direction": {
+     "stopPlaces": [
+      {
+       "evaNumber": "8010304"
+      }
+     ]
+    },
+    "journeyDescription": "ICE 588",
+    "journeyNumber": 588,
+    "label": "Warnow",
+    "operationalJourneyNumber": "588",
+    "type": "HIGH_SPEED_TRAIN",
+    "via": [
+     {
+      "displayPriority": 2,
+      "evaNumber": "8000238"
+     },
+     {
+      "displayPriority": 3,
+      "evaNumber": "8000147"
+     },
+     {
+      "displayPriority": 1,
+      "evaNumber": "8002549"
+     }
+    ]
+   },
+   "vehicleSequenceAvailable": true
+  }
+ ],
+ "messages": {
+  "attributes": [
+   {
+    "code": "RO",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Rollstuhlstellplatz"
+     }
+    ],
+    "messageID": 5
+   },
+   {
+    "code": "FK",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Fahrradmitnahme begrenzt möglich"
+     }
+    ],
+    "messageID": 6
+   },
+   {
+    "code": "EH",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Rollstuhl: Einstieg mit Bahnhofs-/Zugpersonal, Anmeldung empfohlen"
+     }
+    ],
+    "messageID": 7
+   },
+   {
+    "code": "G",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Fahrradmitnahme begrenzt möglich"
+     }
+    ],
+    "messageID": 9
+   },
+   {
+    "code": "CK",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Komfort Check-in verfügbar - wenn möglich bitte einchecken"
+     }
+    ],
+    "messageID": 11
+   },
+   {
+    "code": "FR",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Fahrradmitnahme reservierungspflichtig"
+     }
+    ],
+    "messageID": 12
+   },
+   {
+    "code": "FB",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Fahrradmitnahme begrenzt möglich"
+     }
+    ],
+    "messageID": 14
+   }
+  ],
+  "disruptions": [
+   {
+    "cause": "UNKNOWN_CAUSE",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Der Notarzteinsatz auf der Strecke in Hannover-Linden/Fischerhof ist beendet. Die Streckensperrung ist aufgehoben. Bitte rechnen Sie noch mit Verspätungen und Teilausfällen.",
+      "textShort": "Notarzteinsatz in Hannover-Linden/Fischerhof beendet. Streckensperrung aufgehoben. Verspätungen und Teilausfälle noch möglich."
+     }
+    ],
+    "displayPriority": 20,
+    "disruptionCommunicationID": "6d1a0ad2-dfb1-4e0e-b747-6bffadbc3af0",
+    "disruptionID": "a4d4c9c9-280c-480b-90b4-32f01d09f343",
+    "effect": "IMPAIRMENT",
+    "messageID": 1
+   },
+   {
+    "cause": "POLICE_ACTIVITY",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Behördliche Maßnahmen beeinträchtigen den Bahnverkehr zwischen Kassel-Wilhelmshöhe und Fulda. Die Strecke ist aktuell gesperrt. Die Züge werden umgeleitet. In der Folge kommt es zu Verspätungen. Bitte prüfen Sie Ihre Reiseverbindung kurz vor Abfahrt des Zuges.",
+      "textShort": "Behördliche Maßnahmen beeinträchtigen den Bahnverkehr zwischen Kassel-Wilhelmshöhe und Fulda."
+     }
+    ],
+    "displayPriority": 20,
+    "disruptionCommunicationID": "51e1a8bc-3afc-4744-84e3-d5144607d812",
+    "disruptionID": "0b9c5605-cffd-47a5-83ae-29923c1ac9ea",
+    "effect": "IMPAIRMENT",
+    "messageID": 2
+   }
+  ],
+  "notes": [
+   {
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Kein behindertengerechtes WC im Zug. Mobilitätseingeschränkte Reisende wenden sich bzgl. eventuell erforderlicher Umbuchungen an unsere Mobilitätsservice-Zentrale.",
+      "textShort": "Kein behindertengerechtes WC im Zug. Bei erforderlichen Umbuchungen an Mobilitätsservice-Zentrale wenden."
+     }
+    ],
+    "displayPriority": 60,
+    "disruptionCommunicationID": "0cce1074-203e-42d5-9f5b-987c1f96f233",
+    "disruptionID": "c1a59491-72e4-41c6-9dd4-4c30cd880326",
+    "messageID": 3
+   },
+   {
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Aufzug in Hannover-Ledeburg Gl. 1/2 außer Betrieb.",
+      "textShort": "Aufzug in Hannover-Ledeburg Gl. 1/2 außer Betrieb."
+     }
+    ],
+    "displayPriority": 60,
+    "disruptionCommunicationID": "7f7daa31-2bf7-4197-99ec-5d6c468d9a57",
+    "disruptionID": "214a5d64-4edc-4afc-a08b-c3cd291817dc",
+    "messageID": 4
+   },
+   {
+    "code": "1000",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Heute Wagen 4 verschlossen."
+     }
+    ],
+    "messageID": 13
+   }
+  ],
+  "risCauseCodes": [
+   {
+    "code": "31",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Bauarbeiten"
+     }
+    ],
+    "messageID": 8
+   },
+   {
+    "code": "8",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Notarzteinsatz auf der Strecke"
+     }
+    ],
+    "messageID": 10
+   },
+   {
+    "code": "7",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Unbefugte Personen auf der Strecke"
+     }
+    ],
+    "messageID": 15
+   },
+   {
+    "code": "67",
+    "descriptions": [
+     {
+      "language": "deu",
+      "text": "Behördliche Maßnahme"
+     }
+    ],
+    "messageID": 16
+   }
+  ]
+ },
+ "meta": {
+  "consideredStopPlaces": [
+   "189194",
+   "360021",
+   "612467",
+   "628410",
+   "638427",
+   "638428",
+   "638429",
+   "638430",
+   "8000152",
+   "8089194"
+  ]
+ },
+ "stations": [
+  {
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hannover Hbf"
+    }
+   ],
+   "stada": "2545"
+  }
+ ],
+ "stopPlaces": [
+  {
+   "evaNumber": "8000152",
+   "ifopt": "de:03241:31",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hannover Hbf"
+    }
+   ],
+   "stada": "2545"
+  },
+  {
+   "evaNumber": "8000049",
+   "ifopt": "de:03101:178",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Braunschweig Hbf"
+    }
+   ],
+   "stada": "835"
+  },
+  {
+   "evaNumber": "8000316",
+   "ifopt": "de:05566:60846",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Rheine"
+    }
+   ],
+   "stada": "5251"
+  },
+  {
+   "evaNumber": "8000268",
+   "ifopt": "de:03241:9884",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Wunstorf"
+    }
+   ],
+   "stada": "6913"
+  },
+  {
+   "evaNumber": "8000252",
+   "ifopt": "de:05770:4213",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Minden(Westf)"
+    }
+   ],
+   "stada": "4120"
+  },
+  {
+   "evaNumber": "8000294",
+   "ifopt": "de:03404:71612",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Osnabrück Hbf"
+    }
+   ],
+   "stada": "4787"
+  },
+  {
+   "evaNumber": "8000050",
+   "ifopt": "de:04011:13927",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Bremen Hbf"
+    }
+   ],
+   "stada": "855"
+  },
+  {
+   "evaNumber": "8000279",
+   "ifopt": "de:03256:67639",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Nienburg(Weser)"
+    }
+   ],
+   "stada": "4548"
+  },
+  {
+   "evaNumber": "8006076",
+   "ifopt": "de:03361:93627",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Verden(Aller)"
+    }
+   ],
+   "stada": "6408"
+  },
+  {
+   "evaNumber": "8002634",
+   "ifopt": "de:03257:508",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Haste"
+    }
+   ],
+   "stada": "2587"
+  },
+  {
+   "evaNumber": "8002580",
+   "ifopt": "de:03241:1141",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hannover Bismarckstr."
+    }
+   ],
+   "stada": "2544"
+  },
+  {
+   "evaNumber": "8002586",
+   "ifopt": "de:03241:841",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hannover-Linden/Fischerhof"
+    }
+   ],
+   "stada": "2551"
+  },
+  {
+   "evaNumber": "8000342",
+   "ifopt": "de:03241:5804",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Weetzen"
+    }
+   ],
+   "stada": "6578"
+  },
+  {
+   "evaNumber": "8002589",
+   "ifopt": "de:03241:4111",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hannover Flughafen",
+     "symbol": "$flughafen Hannover Flughafen"
+    }
+   ],
+   "stada": "7180"
+  },
+  {
+   "evaNumber": "8000148",
+   "ifopt": "de:03252:8000",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hameln"
+    }
+   ],
+   "stada": "2525"
+  },
+  {
+   "evaNumber": "8002969",
+   "ifopt": "de:03241:9848",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Holtensen/Linderte"
+    }
+   ],
+   "stada": "2876"
+  },
+  {
+   "evaNumber": "8000872",
+   "ifopt": "de:03241:5844",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Bennigsen"
+    }
+   ],
+   "stada": "483"
+  },
+  {
+   "evaNumber": "8001741",
+   "ifopt": "de:03241:5906",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Völksen/Eldagsen"
+    }
+   ],
+   "stada": "1544"
+  },
+  {
+   "evaNumber": "8005638",
+   "ifopt": "de:03241:5900",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Springe"
+    }
+   ],
+   "stada": "5933"
+  },
+  {
+   "evaNumber": "8000725",
+   "ifopt": "de:03252:1030",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Bad Münder(Deister)"
+    }
+   ],
+   "stada": "306"
+  },
+  {
+   "evaNumber": "8002548",
+   "ifopt": "de:02000:8002548",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hamburg Dammtor"
+    }
+   ],
+   "stada": "2513"
+  },
+  {
+   "evaNumber": "8000261",
+   "ifopt": "de:09162:100",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "München Hbf"
+    }
+   ],
+   "stada": "4234"
+  },
+  {
+   "evaNumber": "8000128",
+   "ifopt": "de:03152:33817",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Göttingen"
+    }
+   ],
+   "stada": "2218"
+  },
+  {
+   "evaNumber": "8003200",
+   "ifopt": "de:06611:200007",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Kassel-Wilhelmshöhe"
+    }
+   ],
+   "stada": "3127"
+  },
+  {
+   "evaNumber": "8000013",
+   "ifopt": "de:09761:100",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Augsburg Hbf"
+    }
+   ],
+   "stada": "220"
+  },
+  {
+   "evaNumber": "8079095",
+   "ifopt": "de:03241:255",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hannover-Nordstadt"
+    }
+   ],
+   "stada": "7899"
+  },
+  {
+   "evaNumber": "8005507",
+   "ifopt": "de:03241:4740",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Seelze"
+    }
+   ],
+   "stada": "5795"
+  },
+  {
+   "evaNumber": "8098160",
+   "ifopt": "de:11000:900003200",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Berlin Hbf"
+    }
+   ],
+   "stada": "1071"
+  },
+  {
+   "evaNumber": "8000001",
+   "ifopt": "de:05334:1008",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Aachen Hbf"
+    }
+   ],
+   "stada": "1"
+  },
+  {
+   "evaNumber": "8000080",
+   "ifopt": "de:05913:131",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Dortmund Hbf"
+    }
+   ],
+   "stada": "1289"
+  },
+  {
+   "evaNumber": "8000098",
+   "ifopt": "de:05113:9289",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Essen Hbf"
+    }
+   ],
+   "stada": "1690"
+  },
+  {
+   "evaNumber": "8000086",
+   "ifopt": "de:05112:16032",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Duisburg Hbf"
+    }
+   ],
+   "stada": "1374"
+  },
+  {
+   "evaNumber": "8000207",
+   "ifopt": "de:05315:11201",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Köln Hbf"
+    }
+   ],
+   "stada": "3320"
+  },
+  {
+   "evaNumber": "8000149",
+   "ifopt": "de:05915:7756",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hamm(Westf)Hbf"
+    }
+   ],
+   "stada": "2528"
+  },
+  {
+   "evaNumber": "8000036",
+   "ifopt": "de:05711:5500",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Bielefeld Hbf"
+    }
+   ],
+   "stada": "622"
+  },
+  {
+   "evaNumber": "8000142",
+   "ifopt": "de:05914:2007",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hagen Hbf"
+    }
+   ],
+   "stada": "2457"
+  },
+  {
+   "evaNumber": "8000169",
+   "ifopt": "de:03254:9922",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hildesheim Hbf"
+    }
+   ],
+   "stada": "2765"
+  },
+  {
+   "evaNumber": "8002584",
+   "ifopt": "de:03241:3201",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hannover-Kleefeld"
+    }
+   ],
+   "stada": "2549"
+  },
+  {
+   "evaNumber": "8070086",
+   "ifopt": "de:03241:3017",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hannover Karl-Wiechert-Allee"
+    }
+   ],
+   "stada": "7181"
+  },
+  {
+   "evaNumber": "8000226",
+   "ifopt": "de:03241:9808",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Lehrte"
+    }
+   ],
+   "stada": "3620"
+  },
+  {
+   "evaNumber": "8079097",
+   "ifopt": "de:03241:4411",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hannover-Ledeburg"
+    }
+   ],
+   "stada": "7183"
+  },
+  {
+   "evaNumber": "8003545",
+   "ifopt": "de:03241:6631",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Langenhagen Mitte"
+    }
+   ],
+   "stada": "7179"
+  },
+  {
+   "evaNumber": "8000093",
+   "ifopt": "de:03254:21616",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Elze(Han)"
+    }
+   ],
+   "stada": "1577"
+  },
+  {
+   "evaNumber": "8000483",
+   "ifopt": "de:03254:22801",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Alfeld(Leine)"
+    }
+   ],
+   "stada": "54"
+  },
+  {
+   "evaNumber": "8000283",
+   "ifopt": "de:03155:68704",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Northeim(Han)"
+    }
+   ],
+   "stada": "4587"
+  },
+  {
+   "evaNumber": "8000871",
+   "ifopt": "de:03241:9911",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Bennemühlen"
+    }
+   ],
+   "stada": "482"
+  },
+  {
+   "evaNumber": "8000168",
+   "ifopt": "de:03360:92160",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Uelzen"
+    }
+   ],
+   "stada": "6310"
+  },
+  {
+   "evaNumber": "8002403",
+   "ifopt": "de:03241:6491",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Großburgwedel"
+    }
+   ],
+   "stada": "2330"
+  },
+  {
+   "evaNumber": "8000064",
+   "ifopt": "de:03351:50",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Celle"
+    }
+   ],
+   "stada": "1036"
+  },
+  {
+   "evaNumber": "8000085",
+   "ifopt": "de:05111:18235",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Düsseldorf Hbf"
+    }
+   ],
+   "stada": "1401"
+  },
+  {
+   "evaNumber": "8012666",
+   "ifopt": "de:12054:900230999",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Potsdam Hbf"
+    }
+   ],
+   "stada": "5012"
+  },
+  {
+   "evaNumber": "8001279",
+   "ifopt": "de:03241:9110",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Burgdorf"
+    }
+   ],
+   "stada": "982"
+  },
+  {
+   "evaNumber": "8001687",
+   "ifopt": "de:03241:9328",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Ehlershausen"
+    }
+   ],
+   "stada": "1485"
+  },
+  {
+   "evaNumber": "8011102",
+   "ifopt": "de:11000:900007102",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Berlin Gesundbrunnen"
+    }
+   ],
+   "stada": "528"
+  },
+  {
+   "evaNumber": "8010224",
+   "ifopt": "de:15003:8010224",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Magdeburg Hbf"
+    }
+   ],
+   "stada": "3881"
+  },
+  {
+   "evaNumber": "8000191",
+   "ifopt": "de:08212:90",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Karlsruhe Hbf"
+    }
+   ],
+   "stada": "3107"
+  },
+  {
+   "evaNumber": "8010304",
+   "ifopt": "de:13003:1489",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Rostock Hbf"
+    }
+   ],
+   "stada": "5365"
+  },
+  {
+   "evaNumber": "8000238",
+   "ifopt": "de:03355:8000238",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Lüneburg"
+    }
+   ],
+   "stada": "3855"
+  },
+  {
+   "evaNumber": "8000147",
+   "ifopt": "de:02000:8000147",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hamburg-Harburg"
+    }
+   ],
+   "stada": "2519"
+  },
+  {
+   "evaNumber": "8002549",
+   "ifopt": "de:02000:10950",
+   "localizedNames": [
+    {
+     "language": "deu",
+     "name": "Hamburg Hbf"
+    }
+   ],
+   "stada": "2514"
+  }
+ ]
+}

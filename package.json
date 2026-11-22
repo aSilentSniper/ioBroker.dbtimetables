@@ -1,7 +1,7 @@
 {
   "name": "iobroker.dbtimetables",
   "version": "0.1.1",
-  "description": "ioBroker Adapter für Abfahrtstafeln auf Basis der offiziellen DB Timetables API (developers.deutschebahn.com)",
+  "description": "ioBroker Adapter für Abfahrtstafeln auf Basis der offiziellen DB-APIs OpenBoards und OpenStation (developers.deutschebahn.com)",
   "author": {
     "name": "Christian Lerch",
     "email": "christian.lerch@softwareschmiede-lerch.de"
@@ -17,6 +17,7 @@
     "ioBroker",
     "Deutsche Bahn",
     "DB",
+    "OpenBoards",
     "Timetables",
     "Abfahrtstafel"
   ],

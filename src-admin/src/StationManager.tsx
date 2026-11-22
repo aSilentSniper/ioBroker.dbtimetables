@@ -93,6 +93,11 @@ export default class StationManager extends ConfigGeneric<ConfigGenericProps, St
 		this.setState({ searchResults: [], searchQuery: '' });
 	}
 
+	/** true, wenn in der Konfiguration noch die alte Timetables-API als Datenquelle gewählt ist. */
+	private usesTimetables(): boolean {
+		return (this.props.data as { api?: string } | undefined)?.api === 'timetables';
+	}
+
 	private search = async (): Promise<void> => {
 		const pattern = this.state.searchQuery.trim();
 		if (!pattern) {
@@ -129,7 +134,11 @@ export default class StationManager extends ConfigGeneric<ConfigGenericProps, St
 			this.setState({
 				searchResults: stations,
 				searching: false,
-				searchError: stations.length ? '' : 'Keine Treffer gefunden. Bitte den Namen vollständiger eintippen.',
+				searchError: stations.length
+					? ''
+					: this.usesTimetables()
+						? 'Keine Treffer gefunden. Bitte den Namen vollständiger eintippen.'
+						: 'Keine Treffer gefunden. Bitte einen anderen Teil des Namens versuchen.',
 			});
 		} catch (err) {
 			this.setState({
@@ -179,9 +188,9 @@ export default class StationManager extends ConfigGeneric<ConfigGenericProps, St
 					color="text.secondary"
 					sx={{ display: 'block', mb: 1 }}
 				>
-					Gesucht wird nach dem Anfang des Stationsnamens (z.B. „Hannover Hbf“ oder „Langenhagen
-					Pferdemarkt“), der EVA-Nummer oder dem DS100-Kürzel. Platzhalter gibt es nicht, und die DB-API
-					liefert pro Suche nur eine Station. Bei „Keine Treffer“ den Namen vollständiger eintippen.
+					{this.usesTimetables()
+						? 'Gesucht wird nach dem Anfang des Stationsnamens (z.B. „Hannover Hbf“ oder „Langenhagen Pferdemarkt“), der EVA-Nummer oder dem DS100-Kürzel. Platzhalter gibt es nicht, und die Timetables-API liefert pro Suche nur eine Station. Bei „Keine Treffer“ den Namen vollständiger eintippen.'
+						: 'Gesucht wird ein Teil des Stationsnamens (z.B. „Pferdemarkt“ findet „Langenhagen Pferdemarkt“) oder eine 7-stellige EVA-Nummer. Nach DS100-Kürzeln kann OpenStation nicht suchen. Eine geänderte Datenquelle gilt erst nach dem Speichern.'}
 				</Typography>
 				{this.state.searchError ? (
 					<Alert

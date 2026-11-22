@@ -44,17 +44,17 @@
       "zh-cn": "DB Timetables"
     },
     "desc": {
-      "en": "Departure boards for German train/S-Bahn stations based on the official Deutsche Bahn Timetables (IRIS) API",
-      "de": "Abfahrtstafeln für Bahnhöfe/Haltestellen auf Basis der offiziellen Deutsche Bahn Timetables (IRIS) API",
-      "ru": "Табло отправления для немецких вокзалов на основе официального API Deutsche Bahn Timetables (IRIS)",
-      "pt": "Painéis de partida para estações ferroviárias alemãs, baseado na API oficial Deutsche Bahn Timetables (IRIS)",
-      "nl": "Vertrekborden voor Duitse treinstations, gebaseerd op de officiële Deutsche Bahn Timetables (IRIS) API",
-      "fr": "Tableaux de départ pour les gares allemandes, basés sur l'API officielle Deutsche Bahn Timetables (IRIS)",
-      "it": "Tabelloni delle partenze per le stazioni ferroviarie tedesche, basati sull'API ufficiale Deutsche Bahn Timetables (IRIS)",
-      "es": "Paneles de salidas para estaciones de tren alemanas, basados en la API oficial Deutsche Bahn Timetables (IRIS)",
-      "pl": "Tablice odjazdów dla niemieckich stacji kolejowych, oparte na oficjalnym API Deutsche Bahn Timetables (IRIS)",
-      "uk": "Табло відправлення для німецьких залізничних станцій на основі офіційного API Deutsche Bahn Timetables (IRIS)",
-      "zh-cn": "基于德国铁路官方 Timetables (IRIS) API 的德国火车站发车信息板"
+      "en": "Departure boards for German train/S-Bahn stations based on the official Deutsche Bahn OpenBoards API",
+      "de": "Abfahrtstafeln für Bahnhöfe/Haltestellen auf Basis der offiziellen Deutsche Bahn OpenBoards API",
+      "ru": "Табло отправления для немецких вокзалов на основе официального API Deutsche Bahn OpenBoards",
+      "pt": "Painéis de partida para estações ferroviárias alemãs, baseado na API oficial Deutsche Bahn OpenBoards",
+      "nl": "Vertrekborden voor Duitse treinstations, gebaseerd op de officiële Deutsche Bahn OpenBoards API",
+      "fr": "Tableaux de départ pour les gares allemandes, basés sur l'API officielle Deutsche Bahn OpenBoards",
+      "it": "Tabelloni delle partenze per le stazioni ferroviarie tedesche, basati sull'API ufficiale Deutsche Bahn OpenBoards",
+      "es": "Paneles de salidas para estaciones de tren alemanas, basados en la API oficial Deutsche Bahn OpenBoards",
+      "pl": "Tablice odjazdów dla niemieckich stacji kolejowych, oparte na oficjalnym API Deutsche Bahn OpenBoards",
+      "uk": "Табло відправлення для німецьких залізничних станцій на основі офіційного API Deutsche Bahn OpenBoards",
+      "zh-cn": "基于德国铁路官方 OpenBoards API 的德国火车站发车信息板"
     },
     "authors": [
       "Christian Lerch <christian.lerch@softwareschmiede-lerch.de>"
@@ -104,6 +104,7 @@
   "native": {
     "clientId": "",
     "apiKey": "",
+    "api": "openboards",
     "pollInterval": 60,
     "delayMinutesThreshold": 2,
     "colorOnTime": "#008000",

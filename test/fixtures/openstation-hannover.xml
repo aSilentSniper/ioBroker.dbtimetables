@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PublicationDelivery xmlns="http://www.netex.org.uk/netex" xmlns:ns2="http://www.opengis.net/gml/3.2" xmlns:ns3="http://www.siri.org.uk/siri" version="1793149303">
+    <PublicationTimestamp>2026-11-22T16:20:41.791Z</PublicationTimestamp>
+    <ParticipantRef>DB</ParticipantRef>
+    <dataObjects>
+        <CompositeFrame version="1793149303" id="epd:de:DB:CompositeFrame:EU_PI_STOP_OFFER:DB:bb46fdae-4f55-589b-9f16-7098fc0a595b">
+            <keyList>
+                <KeyValue>
+                    <Key>NORMALIZED_ID_URI</Key>
+                    <Value>http://netex-cen.eu/epip_data/de%3ADB%3ACompositeFrame%3AEU_PI_STOP_OFFER%3ADB</Value>
+                </KeyValue>
+            </keyList>
+            <TypeOfFrameRef ref="epip:EU_PI_STOP_OFFER" versionRef="1.0"/>
+            <frames>
+                <SiteFrame version="1793149303" id="epd:de:DB:SiteFrame:EU_PI_STOP:DB:88401e11-e534-5789-b6d4-a1379fb50cb3">
+                    <keyList>
+                        <KeyValue>
+                            <Key>NORMALIZED_ID_URI</Key>
+                            <Value>http://netex-cen.eu/epip_data/de%3ADB%3ASiteFrame%3AEU_PI_STOP%3ADB</Value>
+                        </KeyValue>
+                    </keyList>
+                    <TypeOfFrameRef ref="epip:EU_PI_STOP" versionRef="1.0"/>
+                    <stopPlaces>
+                        <StopPlace responsibilitySetRef="dbinfrago:511c7aa7-b6a2-534c-a2d5-d6a867e6aeee" version="1781175300" id="dhid:de:03241:1141:EdB">
+                            <keyList>
+                                <KeyValue>
+                                    <Key>NORMALIZED_ID_URI</Key>
+                                    <Value>https://id.vdv.de/dhid/de%3A03241%3A1141%3AEdB</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>EVA</Key>
+                                    <Value>8002580</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HHBI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>FEDERAL_STATE</Key>
+                                    <Value>DE-NI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_STATION_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_PRICE_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                            </keyList>
+                            <privateCodes>
+                                <PrivateCode type="https://daten.bahnhof.de/namespace/stada/">2544</PrivateCode>
+                            </privateCodes>
+                            <Name lang="de">Hannover Bismarckstraße<Text lang="de">Hannover Bismarckstraße</Text>
+                            </Name>
+                            <PrivateCode>2544</PrivateCode>
+                            <placeTypes>
+                                <TypeOfPlaceRef ref="epip:monomodal" versionRef="1.0"/>
+                            </placeTypes>
+                            <Url>https://www.bahnhof.de/id/2544</Url>
+                        </StopPlace>
+                        <StopPlace responsibilitySetRef="dbinfrago:511c7aa7-b6a2-534c-a2d5-d6a867e6aeee" version="1781175300" id="dhid:de:03241:255:EdB">
+                            <keyList>
+                                <KeyValue>
+                                    <Key>NORMALIZED_ID_URI</Key>
+                                    <Value>https://id.vdv.de/dhid/de%3A03241%3A255%3AEdB</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>EVA</Key>
+                                    <Value>8079095</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HHN</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>FEDERAL_STATE</Key>
+                                    <Value>DE-NI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_STATION_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_PRICE_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                            </keyList>
+                            <privateCodes>
+                                <PrivateCode type="https://daten.bahnhof.de/namespace/stada/">7899</PrivateCode>
+                            </privateCodes>
+                            <Name lang="de">Hannover-Nordstadt<Text lang="de">Hannover-Nordstadt</Text>
+                            </Name>
+                            <PrivateCode>7899</PrivateCode>
+                            <placeTypes>
+                                <TypeOfPlaceRef ref="epip:monomodal" versionRef="1.0"/>
+                            </placeTypes>
+                            <Url>https://www.bahnhof.de/id/7899</Url>
+                        </StopPlace>
+                        <StopPlace responsibilitySetRef="dbinfrago:511c7aa7-b6a2-534c-a2d5-d6a867e6aeee" version="1791507678" id="dhid:de:03241:3017:EdB">
+                            <keyList>
+                                <KeyValue>
+                                    <Key>NORMALIZED_ID_URI</Key>
+                                    <Value>https://id.vdv.de/dhid/de%3A03241%3A3017%3AEdB</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>EVA</Key>
+                                    <Value>8070086</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HKWA</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>FEDERAL_STATE</Key>
+                                    <Value>DE-NI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_STATION_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_PRICE_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                            </keyList>
+                            <privateCodes>
+                                <PrivateCode type="https://daten.bahnhof.de/namespace/stada/">7181</PrivateCode>
+                            </privateCodes>
+                            <Name lang="de">Hannover Karl-Wiechert-Allee<Text lang="de">Hannover Karl-Wiechert-Allee</Text>
+                            </Name>
+                            <PrivateCode>7181</PrivateCode>
+                            <placeTypes>
+                                <TypeOfPlaceRef ref="epip:monomodal" versionRef="1.0"/>
+                            </placeTypes>
+                            <Url>https://www.bahnhof.de/id/7181</Url>
+                        </StopPlace>
+                        <StopPlace responsibilitySetRef="dbinfrago:511c7aa7-b6a2-534c-a2d5-d6a867e6aeee" version="1793149303" id="dhid:de:03241:31:EdB">
+                            <keyList>
+                                <KeyValue>
+                                    <Key>NORMALIZED_ID_URI</Key>
+                                    <Value>https://id.vdv.de/dhid/de%3A03241%3A31%3AEdB</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>EVA</Key>
+                                    <Value>8000152</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HH</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>FEDERAL_STATE</Key>
+                                    <Value>DE-NI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_STATION_CATEGORY</Key>
+                                    <Value>1</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_PRICE_CATEGORY</Key>
+                                    <Value>1</Value>
+                                </KeyValue>
+                            </keyList>
+                            <privateCodes>
+                                <PrivateCode type="https://daten.bahnhof.de/namespace/stada/">2545</PrivateCode>
+                            </privateCodes>
+                            <Name lang="de">Hannover Hbf<Text lang="de">Hannover Hbf</Text>
+                            </Name>
+                            <PrivateCode>2545</PrivateCode>
+                            <placeTypes>
+                                <TypeOfPlaceRef ref="epip:monomodal" versionRef="1.0"/>
+                            </placeTypes>
+                            <Url>https://www.bahnhof.de/id/2545</Url>
+                        </StopPlace>
+                        <StopPlace responsibilitySetRef="dbinfrago:511c7aa7-b6a2-534c-a2d5-d6a867e6aeee" version="1791507678" id="dhid:de:03241:3201:EdB">
+                            <keyList>
+                                <KeyValue>
+                                    <Key>NORMALIZED_ID_URI</Key>
+                                    <Value>https://id.vdv.de/dhid/de%3A03241%3A3201%3AEdB</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>EVA</Key>
+                                    <Value>8002584</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HKL</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>FEDERAL_STATE</Key>
+                                    <Value>DE-NI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_STATION_CATEGORY</Key>
+                                    <Value>5</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_PRICE_CATEGORY</Key>
+                                    <Value>5</Value>
+                                </KeyValue>
+                            </keyList>
+                            <privateCodes>
+                                <PrivateCode type="https://daten.bahnhof.de/namespace/stada/">2549</PrivateCode>
+                            </privateCodes>
+                            <Name lang="de">Hannover-Kleefeld<Text lang="de">Hannover-Kleefeld</Text>
+                            </Name>
+                            <PrivateCode>2549</PrivateCode>
+                            <placeTypes>
+                                <TypeOfPlaceRef ref="epip:monomodal" versionRef="1.0"/>
+                            </placeTypes>
+                            <Url>https://www.bahnhof.de/id/2549</Url>
+                        </StopPlace>
+                        <StopPlace responsibilitySetRef="dbinfrago:511c7aa7-b6a2-534c-a2d5-d6a867e6aeee" version="1781175300" id="dhid:de:03241:4111:EdB">
+                            <keyList>
+                                <KeyValue>
+                                    <Key>NORMALIZED_ID_URI</Key>
+                                    <Value>https://id.vdv.de/dhid/de%3A03241%3A4111%3AEdB</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>EVA</Key>
+                                    <Value>8002589</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HLGF</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>FEDERAL_STATE</Key>
+                                    <Value>DE-NI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_STATION_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_PRICE_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                            </keyList>
+                            <privateCodes>
+                                <PrivateCode type="https://daten.bahnhof.de/namespace/stada/">7180</PrivateCode>
+                            </privateCodes>
+                            <Name lang="de">Hannover-Flughafen<Text lang="de">Hannover-Flughafen</Text>
+                            </Name>
+                            <PrivateCode>7180</PrivateCode>
+                            <placeTypes>
+                                <TypeOfPlaceRef ref="epip:monomodal" versionRef="1.0"/>
+                            </placeTypes>
+                            <Url>https://www.bahnhof.de/id/7180</Url>
+                        </StopPlace>
+                        <StopPlace responsibilitySetRef="dbinfrago:511c7aa7-b6a2-534c-a2d5-d6a867e6aeee" version="1781175300" id="dhid:de:03241:4121:EdB">
+                            <keyList>
+                                <KeyValue>
+                                    <Key>NORMALIZED_ID_URI</Key>
+                                    <Value>https://id.vdv.de/dhid/de%3A03241%3A4121%3AEdB</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>EVA</Key>
+                                    <Value>8006089</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HVIN</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>FEDERAL_STATE</Key>
+                                    <Value>DE-NI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_STATION_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_PRICE_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                            </keyList>
+                            <privateCodes>
+                                <PrivateCode type="https://daten.bahnhof.de/namespace/stada/">6424</PrivateCode>
+                            </privateCodes>
+                            <Name lang="de">Hannover - Vinnhorst<Text lang="de">Hannover - Vinnhorst</Text>
+                            </Name>
+                            <PrivateCode>6424</PrivateCode>
+                            <placeTypes>
+                                <TypeOfPlaceRef ref="epip:monomodal" versionRef="1.0"/>
+                            </placeTypes>
+                            <Url>https://www.bahnhof.de/id/6424</Url>
+                        </StopPlace>
+                        <StopPlace responsibilitySetRef="dbinfrago:511c7aa7-b6a2-534c-a2d5-d6a867e6aeee" version="1781175300" id="dhid:de:03241:4331:EdB">
+                            <keyList>
+                                <KeyValue>
+                                    <Key>NORMALIZED_ID_URI</Key>
+                                    <Value>https://id.vdv.de/dhid/de%3A03241%3A4331%3AEdB</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>EVA</Key>
+                                    <Value>8002585</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HLEI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>FEDERAL_STATE</Key>
+                                    <Value>DE-NI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_STATION_CATEGORY</Key>
+                                    <Value>5</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_PRICE_CATEGORY</Key>
+                                    <Value>5</Value>
+                                </KeyValue>
+                            </keyList>
+                            <privateCodes>
+                                <PrivateCode type="https://daten.bahnhof.de/namespace/stada/">2550</PrivateCode>
+                            </privateCodes>
+                            <Name lang="de">Hannover-Leinhausen<Text lang="de">Hannover-Leinhausen</Text>
+                            </Name>
+                            <PrivateCode>2550</PrivateCode>
+                            <placeTypes>
+                                <TypeOfPlaceRef ref="epip:monomodal" versionRef="1.0"/>
+                            </placeTypes>
+                            <Url>https://www.bahnhof.de/id/2550</Url>
+                        </StopPlace>
+                        <StopPlace responsibilitySetRef="dbinfrago:511c7aa7-b6a2-534c-a2d5-d6a867e6aeee" version="1781175300" id="dhid:de:03241:4411:EdB">
+                            <keyList>
+                                <KeyValue>
+                                    <Key>NORMALIZED_ID_URI</Key>
+                                    <Value>https://id.vdv.de/dhid/de%3A03241%3A4411%3AEdB</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>EVA</Key>
+                                    <Value>8079097</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HLEA</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HLEG</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>FEDERAL_STATE</Key>
+                                    <Value>DE-NI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_STATION_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_PRICE_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                            </keyList>
+                            <privateCodes>
+                                <PrivateCode type="https://daten.bahnhof.de/namespace/stada/">7183</PrivateCode>
+                            </privateCodes>
+                            <Name lang="de">Hannover - Ledeburg<Text lang="de">Hannover - Ledeburg</Text>
+                            </Name>
+                            <PrivateCode>7183</PrivateCode>
+                            <placeTypes>
+                                <TypeOfPlaceRef ref="epip:monomodal" versionRef="1.0"/>
+                            </placeTypes>
+                            <Url>https://www.bahnhof.de/id/7183</Url>
+                        </StopPlace>
+                        <StopPlace responsibilitySetRef="dbinfrago:511c7aa7-b6a2-534c-a2d5-d6a867e6aeee" version="1781175300" id="dhid:de:03241:841:EdB">
+                            <keyList>
+                                <KeyValue>
+                                    <Key>NORMALIZED_ID_URI</Key>
+                                    <Value>https://id.vdv.de/dhid/de%3A03241%3A841%3AEdB</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>EVA</Key>
+                                    <Value>8002586</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HLI R</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>FEDERAL_STATE</Key>
+                                    <Value>DE-NI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_STATION_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_PRICE_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                            </keyList>
+                            <privateCodes>
+                                <PrivateCode type="https://daten.bahnhof.de/namespace/stada/">2551</PrivateCode>
+                            </privateCodes>
+                            <Name lang="de">Hannover-Linden/Fischerhof<Text lang="de">Hannover-Linden/Fischerhof</Text>
+                            </Name>
+                            <PrivateCode>2551</PrivateCode>
+                            <placeTypes>
+                                <TypeOfPlaceRef ref="epip:monomodal" versionRef="1.0"/>
+                            </placeTypes>
+                            <Url>https://www.bahnhof.de/id/2551</Url>
+                        </StopPlace>
+                        <StopPlace responsibilitySetRef="dbinfrago:511c7aa7-b6a2-534c-a2d5-d6a867e6aeee" version="1781175780" id="dhid:de:03241:9830:EdB">
+                            <keyList>
+                                <KeyValue>
+                                    <Key>NORMALIZED_ID_URI</Key>
+                                    <Value>https://id.vdv.de/dhid/de%3A03241%3A9830%3AEdB</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>EVA</Key>
+                                    <Value>8003487</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HHML</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>FEDERAL_STATE</Key>
+                                    <Value>DE-NI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_STATION_CATEGORY</Key>
+                                    <Value>3</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_PRICE_CATEGORY</Key>
+                                    <Value>4</Value>
+                                </KeyValue>
+                            </keyList>
+                            <privateCodes>
+                                <PrivateCode type="https://daten.bahnhof.de/namespace/stada/">3488</PrivateCode>
+                            </privateCodes>
+                            <Name lang="de">Hannover-Messe / Laatzen<Text lang="de">Hannover-Messe / Laatzen</Text>
+                            </Name>
+                            <PrivateCode>3488</PrivateCode>
+                            <placeTypes>
+                                <TypeOfPlaceRef ref="epip:monomodal" versionRef="1.0"/>
+                            </placeTypes>
+                            <Url>https://www.bahnhof.de/id/3488</Url>
+                        </StopPlace>
+                        <StopPlace responsibilitySetRef="dbinfrago:511c7aa7-b6a2-534c-a2d5-d6a867e6aeee" version="1781140450" id="dhid:de:03241:9840:EdB">
+                            <keyList>
+                                <KeyValue>
+                                    <Key>NORMALIZED_ID_URI</Key>
+                                    <Value>https://id.vdv.de/dhid/de%3A03241%3A9840%3AEdB</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>EVA</Key>
+                                    <Value>8002581</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>RIL</Key>
+                                    <Value>HHBO</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>FEDERAL_STATE</Key>
+                                    <Value>DE-NI</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_STATION_CATEGORY</Key>
+                                    <Value>5</Value>
+                                </KeyValue>
+                                <KeyValue>
+                                    <Key>DBINFRAGO_PRICE_CATEGORY</Key>
+                                    <Value>5</Value>
+                                </KeyValue>
+                            </keyList>
+                            <privateCodes>
+                                <PrivateCode type="https://daten.bahnhof.de/namespace/stada/">2546</PrivateCode>
+                            </privateCodes>
+                            <Name lang="de">Hannover-Bornum<Text lang="de">Hannover-Bornum</Text>
+                            </Name>
+                            <PrivateCode>2546</PrivateCode>
+                            <placeTypes>
+                                <TypeOfPlaceRef ref="epip:monomodal" versionRef="1.0"/>
+                            </placeTypes>
+                            <Url>https://www.bahnhof.de/id/2546</Url>
+                        </StopPlace>
+                    </stopPlaces>
+                </SiteFrame>
+            </frames>
+        </CompositeFrame>
+    </dataObjects>
+</PublicationDelivery>
