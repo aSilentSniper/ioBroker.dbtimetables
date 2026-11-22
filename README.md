@@ -123,9 +123,13 @@ npm run build-admin-ui
 This installs `src-admin`'s own dependencies, builds it with Vite, and copies the result into `admin/custom/`, which is what actually ships with the adapter (`admin/jsonConfig.json` references it via `type: "custom"`).
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+- ioBroker now shows a notice before updating from 0.1.x, explaining the switch to OpenBoards and the subscriptions it needs
+
 ### 0.2.0 (2026-11-22)
 
-- new data source OpenBoards + OpenStation, the successor of the Timetables API (expected shutdown mid 2027). It is the new default; Timetables can still be selected in the instance settings
+- (BREAKING) new data source OpenBoards + OpenStation, the successor of the Timetables API (expected shutdown mid 2027). It is the new default; Timetables can still be selected in the instance settings
 - departures come from a single API call per station and include the operator name
 - coupled trains (e.g. ICE 1069 + ICE 2831) are shown as one departure, like on the platform displays
 - station search finds any part of the name ("Pferdemarkt" finds "Langenhagen Pferdemarkt") and lists all matches, main station first
