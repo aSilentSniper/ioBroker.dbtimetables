@@ -123,7 +123,7 @@ npm run build-admin-ui
 This installs `src-admin`'s own dependencies, builds it with Vite, and copies the result into `admin/custom/`, which is what actually ships with the adapter (`admin/jsonConfig.json` references it via `type: "custom"`).
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.2.0 (2026-11-22)
 
 - new data source OpenBoards + OpenStation, the successor of the Timetables API (expected shutdown mid 2027). It is the new default; Timetables can still be selected in the instance settings
 - departures come from a single API call per station and include the operator name
